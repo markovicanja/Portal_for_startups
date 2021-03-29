@@ -1,0 +1,237 @@
+  
+<div class="card">
+    <div class="card-body mx-auto">
+
+        <h4 class="card-title mt-3 text-center">Register</h4>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="startup-tab" data-toggle="tab" href="#startup" role="tab"
+                    aria-controls="home" aria-selected="true">Startup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="investor-tab" data-toggle="tab" href="#investor" role="tab"
+                    aria-controls="profile" aria-selected="false">Investor</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Startup -->
+            <div class="tab-pane fade show active" id="startup" role="tabpanel" aria-labelledby="startup-tab">
+
+                <form name="startup-form" class="mt-3" enctype="multipart/form-data">
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i>*</span>
+                        </div>
+                        <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="username">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                        </div>
+                        <input name="password1" class="form-control" placeholder="Password" type="password" [(ngModel)]="pass1">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                        </div>
+                        <input name="password2" class="form-control" placeholder="Repeated password" type="password" [(ngModel)]="pass2">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                        </div>
+                        <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullName">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                        </div>
+                        <input name="establishmentDate" class="form-control" placeholder="Date of establishment" type="text" onfocus="(this.type='date')" [(ngModel)]="establishmentDate">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-invoice"></i> </span>
+                        </div>
+                        <input name="registrationNumber" class="form-control" placeholder="Registration number" type="text" [(ngModel)]="registrationNumber">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-alt"></i> </span>
+                        </div>
+                        <input name="taxId" class="form-control" placeholder="Tax ID" type="text" [(ngModel)]="taxId">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="firstname" class="form-control" placeholder="First name" type="text" [(ngModel)]="firstName">
+                        <input name="middlename" class="form-control" placeholder="Middle name" type="text" [(ngModel)]="middleName">
+                        <input name="lastname" class="form-control" placeholder="Last name" type="text" [(ngModel)]="lastName">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
+                        </div>
+                        <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="address">
+                        <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="municipality">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
+                        </div>
+                        <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="city">
+                        <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="country">
+                    </div>
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                        <input name="phoneNumber" class="form-control" placeholder="Phone" type="text" [(ngModel)]="phoneNumber">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Email" type="text" [(ngModel)]="email">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
+                        </div>
+                        <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="website">
+                    </div>                
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-tag"></i>*</span>
+                        </div>
+                        <select name="title" class="form-control select" oninput="style.color='black'"
+                            [(ngModel)]="employee.title">
+                            <option disabled selected class="select-placeholder">Zvanje</option>
+                            <option>redovni profesor</option>
+                            <option>vanredni profesor</option>
+                            <option>docent</option>
+                            <option>asistent</option>
+                            <option>saradnik u nastavi</option>
+                            <option>istrazivac</option>
+                            <option>laboratorijski inzenjer</option>
+                            <option>laboratorijski tehnicar</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
+
+                    <div class="form-group input-group" *ngIf="loggedUser?.type == 'admin'">
+                        <div class="input-group-prepend profile-pic-logo">
+                            <span class="input-group-text"><i class="far fa-image"></i></span>
+                        </div>
+                        <input type="file" class="custom-file-input form-control profile-pic-input" id="customFile" name="uploadedImage"
+                            (change)="onFileSelect($event)" #UploadFileInput>
+
+                        <div class="input-group-append">
+                            <label class="custom-file-label profile-pic-label" for="customFile">{{fileInputLabel ||
+                                'Choose File'}}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input (click)="registerStartup()" type="submit" class="btn btn-primary btn-block" value="Register">
+                    </div>
+
+                </form>
+
+                <div class="text-warning">
+                    <p>{{msgStartup}}</p>
+                </div>
+            </div>
+
+
+            <!-- Investor -->
+            <div class="tab-pane fade" id="investor" role="tabpanel" aria-labelledby="investor-tab">
+
+                <form name="investor-form" class="mt-3">
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">{{studentUsername}}@student.etf.rs </span>
+                        </div>
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i>*</span>
+                        </div>
+                        <input name="firstname" onkeypress="return /[- 'a-zA-Z]/i.test(event.key)" class="form-control"
+                            placeholder="Ime" type="text" [(ngModel)]="student.firstName">
+                        <input name="lastname" onkeypress="return /[- 'a-zA-Z]/i.test(event.key)" class="form-control"
+                            placeholder="Prezime" type="text" [(ngModel)]="student.lastName">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                        </div>
+                        <input name="pass1" class="form-control" placeholder="Lozinka" type="password"
+                            [(ngModel)]="studPass1">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                        </div>
+                        <input name="pass2" class="form-control" placeholder="Ponovljena lozinka" type="password"
+                            [(ngModel)]="studPass2">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-book-open"></i>*</span>
+                        </div>
+                        <input name="index" onkeypress="return /[/0-9]/i.test(event.key)" class="form-control"
+                            placeholder="Broj indeksa GGGG/BBBB" type="text" [(ngModel)]="student.index">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-graduation-cap"></i>*</span>
+                        </div>
+                        <select name="type" [(ngModel)]="student.type" class="form-control select"
+                            oninput="style.color='black'">
+                            <option disabled selected class="select-placeholder">Tip studija</option>
+                            <option value='d'>Osnovne akademske</option>
+                            <option value='m'>Master akademske</option>
+                            <option value='p'>Doktorske studije</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
+
+                    <div class="form-group">
+                        <input (click)="registerStudent()" type="submit" class="btn btn-primary btn-block"
+                            value="Registracija">
+                    </div> <!-- form-group// -->
+
+                </form>
+
+                <div class="text-center text-warning">
+                    <p>{{msgStud}}</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
