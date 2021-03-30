@@ -23,21 +23,21 @@
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i>*</span>
+                            <span class="input-group-text"> <i class="fa fa-user"></i></span>
                         </div>
                         <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="username">
                     </div>
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                            <span class="input-group-text"> <i class="fa fa-lock"></i></span>
                         </div>
                         <input name="password1" class="form-control" placeholder="Password" type="password" [(ngModel)]="pass1">
                     </div>
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input name="password2" class="form-control" placeholder="Repeated password" type="password" [(ngModel)]="pass2">
                     </div>
@@ -114,36 +114,93 @@
                             <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
                         </div>
                         <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="website">
-                    </div>                
+                    </div> 
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+                        </div>
+                        <input name="socialNetworks" class="form-control" placeholder="Social networks (separated by comma)" type="text" [(ngModel)]="socialNetworks">
+                    </div> 
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
+                        </div>
+                        <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessType">
+                    </div>
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-tag"></i>*</span>
+                            <span class="input-group-text"> <i class="fas fa-user-tie"></i> </span>
                         </div>
-                        <select name="title" class="form-control select" oninput="style.color='black'"
-                            [(ngModel)]="employee.title">
-                            <option disabled selected class="select-placeholder">Zvanje</option>
-                            <option>redovni profesor</option>
-                            <option>vanredni profesor</option>
-                            <option>docent</option>
-                            <option>asistent</option>
-                            <option>saradnik u nastavi</option>
-                            <option>istrazivac</option>
-                            <option>laboratorijski inzenjer</option>
-                            <option>laboratorijski tehnicar</option>
-                        </select>
-                    </div> <!-- form-group end.// -->
+                        <input name="employeeNumber" class="form-control" placeholder="Number of employees" type="number" [(ngModel)]="employeeNumber">
+                    </div>
 
-                    <div class="form-group input-group" *ngIf="loggedUser?.type == 'admin'">
-                        <div class="input-group-prepend profile-pic-logo">
-                            <span class="input-group-text"><i class="far fa-image"></i></span>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-chart-line"></i> </span>
                         </div>
+                        <select name="phase" class="form-control select" [(ngModel)]="phase">
+                            <option value='' disabled selected hidden class="select-placeholder">Business phase</option>
+                            <option>Seed</option>
+                            <option>Growth</option>
+                            <option>Maturity</option>
+                            <option>Transition</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
+                        </div>
+                        <input name="income1" class="form-control" placeholder="Last year income" type="text" [(ngModel)]="income1">
+                        <input name="income2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="income2">
+                        <input name="income3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="income3">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
+                        </div>
+                        <input name="profit1" class="form-control" placeholder="Last year profit" type="text" [(ngModel)]="profit1">
+                        <input name="profit2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="profit2">
+                        <input name="profit3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="profit3">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map"></i> </span>
+                        </div>
+                        <input name="projectProposal" class="form-control" placeholder="Project proposal" type="text" [(ngModel)]="projectProposal">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-dollar-sign"></i> </span>
+                        </div>
+                        <input name="amount" class="form-control" placeholder="Amount" type="text" [(ngModel)]="amount">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-copyright"></i></span>
+                        </div>
+                        <input name="ipStatus" class="form-control" placeholder="Intellectual property status" type="text" [(ngModel)]="ipStatus">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                        </div>
+                        <input name="patentInfo" class="form-control" placeholder="Patent information" type="text" [(ngModel)]="patentInfo">
+                    </div>
+
+                    <div class="form-group input-group mt-3">                    
                         <input type="file" class="custom-file-input form-control profile-pic-input" id="customFile" name="uploadedImage"
                             (change)="onFileSelect($event)" #UploadFileInput>
-
                         <div class="input-group-append">
-                            <label class="custom-file-label profile-pic-label" for="customFile">{{fileInputLabel ||
-                                'Choose File'}}</label>
+                            <label class="custom-file-label profile-pic-label" for="customFile">{{fileInputLabel || 'Choose File'}}</label>
                         </div>
                     </div>
 
@@ -166,68 +223,176 @@
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i></span>
+                        </div>
+                        <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="username">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i></span>
+                        </div>
+                        <input name="password1" class="form-control" placeholder="Password" type="password" [(ngModel)]="pass1">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input name="password2" class="form-control" placeholder="Repeated password" type="password" [(ngModel)]="pass2">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                        </div>
+                        <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullName">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                        </div>
+                        <input name="establishmentDate" class="form-control" placeholder="Date of establishment" type="text" onfocus="(this.type='date')" [(ngModel)]="establishmentDate">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-invoice"></i> </span>
+                        </div>
+                        <input name="registrationNumber" class="form-control" placeholder="Registration number" type="text" [(ngModel)]="registrationNumber">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-file-alt"></i> </span>
+                        </div>
+                        <input name="taxId" class="form-control" placeholder="Tax ID" type="text" [(ngModel)]="taxId">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
+                        <input name="firstname" class="form-control" placeholder="First name" type="text" [(ngModel)]="firstName">
+                        <input name="middlename" class="form-control" placeholder="Middle name" type="text" [(ngModel)]="middleName">
+                        <input name="lastname" class="form-control" placeholder="Last name" type="text" [(ngModel)]="lastName">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
+                        </div>
+                        <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="address">
+                        <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="municipality">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
+                        </div>
+                        <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="city">
+                        <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="country">
+                    </div>
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                        <input name="phoneNumber" class="form-control" placeholder="Phone" type="text" [(ngModel)]="phoneNumber">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Email" type="text" [(ngModel)]="email">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
+                        </div>
+                        <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="website">
+                    </div> 
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+                        </div>
+                        <input name="socialNetworks" class="form-control" placeholder="Social networks (separated by comma)" type="text" [(ngModel)]="socialNetworks">
+                    </div> 
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
+                        </div>
+                        <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessType">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-user-tie"></i> </span>
+                        </div>
+                        <input name="employeeNumber" class="form-control" placeholder="Number of employees" type="number" [(ngModel)]="employeeNumber">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
+                        </div>
+                        <input name="income1" class="form-control" placeholder="Last year income" type="text" [(ngModel)]="income1">
+                        <input name="income2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="income2">
+                        <input name="income3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="income3">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
+                        </div>
+                        <input name="profit1" class="form-control" placeholder="Last year profit" type="text" [(ngModel)]="profit1">
+                        <input name="profit2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="profit2">
+                        <input name="profit3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="profit3">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-building"></i> </span>
+                        </div>
+                        <input name="investorType" class="form-control" placeholder="Investor type" type="text" [(ngModel)]="investorType">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-tasks"></i> </span>
+                        </div>
+                        <input name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="servicesType">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-coins"></i> </span>
+                        </div>
+                        <input name="investFrom" class="form-control" placeholder="Amount to invest from" type="text" [(ngModel)]="investFrom">
+                        <input name="investTo" class="form-control" placeholder="Amount to invest to" type="text" [(ngModel)]="investTo">
+                    </div>
+
+                    <div class="form-group input-group mt-3">                    
+                        <input type="file" class="custom-file-input form-control profile-pic-input" id="customFile" name="uploadedImage"
+                            (change)="onFileSelect($event)" #UploadFileInput>
                         <div class="input-group-append">
-                            <span class="input-group-text">{{studentUsername}}@student.etf.rs </span>
+                            <label class="custom-file-label profile-pic-label" for="customFile">{{fileInputLabel || 'Choose File'}}</label>
                         </div>
-                    </div> <!-- form-group// -->
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i>*</span>
-                        </div>
-                        <input name="firstname" onkeypress="return /[- 'a-zA-Z]/i.test(event.key)" class="form-control"
-                            placeholder="Ime" type="text" [(ngModel)]="student.firstName">
-                        <input name="lastname" onkeypress="return /[- 'a-zA-Z]/i.test(event.key)" class="form-control"
-                            placeholder="Prezime" type="text" [(ngModel)]="student.lastName">
-                    </div> <!-- form-group// -->
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
-                        </div>
-                        <input name="pass1" class="form-control" placeholder="Lozinka" type="password"
-                            [(ngModel)]="studPass1">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i>*</span>
-                        </div>
-                        <input name="pass2" class="form-control" placeholder="Ponovljena lozinka" type="password"
-                            [(ngModel)]="studPass2">
-                    </div> <!-- form-group// -->
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-book-open"></i>*</span>
-                        </div>
-                        <input name="index" onkeypress="return /[/0-9]/i.test(event.key)" class="form-control"
-                            placeholder="Broj indeksa GGGG/BBBB" type="text" [(ngModel)]="student.index">
-                    </div> <!-- form-group// -->
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-graduation-cap"></i>*</span>
-                        </div>
-                        <select name="type" [(ngModel)]="student.type" class="form-control select"
-                            oninput="style.color='black'">
-                            <option disabled selected class="select-placeholder">Tip studija</option>
-                            <option value='d'>Osnovne akademske</option>
-                            <option value='m'>Master akademske</option>
-                            <option value='p'>Doktorske studije</option>
-                        </select>
-                    </div> <!-- form-group end.// -->
+                    </div>
 
                     <div class="form-group">
-                        <input (click)="registerStudent()" type="submit" class="btn btn-primary btn-block"
-                            value="Registracija">
-                    </div> <!-- form-group// -->
+                        <input (click)="registerInvestor()" type="submit" class="btn btn-primary btn-block" value="Register">
+                    </div>
 
                 </form>
 
                 <div class="text-center text-warning">
-                    <p>{{msgStud}}</p>
+                    <p>{{msgInvestor}}</p>
                 </div>
 
             </div>
