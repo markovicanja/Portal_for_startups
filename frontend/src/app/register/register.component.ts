@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.phase = '';
+    this.investorType = '';
 
     this.fileUploadForm = this.formBuilder.group({
       uploadedImage: ['']

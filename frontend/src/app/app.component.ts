@@ -16,21 +16,16 @@ export class AppComponent {
     if (localStorage.getItem("user") == "")
       this.sessionValid = false;
     else this.sessionValid = true;
-    // if (localStorage.getItem("user") == "zaposlen")
-    //   this.employeeLogged = true;
-    // else this.employeeLogged = false;
   }    
 
   sessionValid: boolean;
-  // employeeLogged: boolean;
 
   logout() {
     localStorage.setItem("user", "");
-    // localStorage.setItem("admin", null);
-    // localStorage.setItem("student", null);
-    // localStorage.setItem("employee", null);
+    localStorage.setItem("admin", null);
+    localStorage.setItem("startup", null);
+    localStorage.setItem("investor", null);
     this.sessionValid = false;
-    // this.employeeLogged = false;
     this.router.navigate(["home"]);
   }
 }

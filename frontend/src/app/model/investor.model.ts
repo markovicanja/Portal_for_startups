@@ -1,0 +1,32 @@
+export class Investor {
+    username: string;
+    fullName: string;
+    establishmentDate: Date;
+    registrationNumber: string;
+    taxId: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    address: string;
+    municipality: string;
+    city: string;
+    country: string;
+    phoneNumber: string;
+    email: string;
+    website: string;
+    socialNetworks: string;
+    businessType: string;
+    employeeNumber: number;
+    phase: string;
+    income1: string;
+    income2: string;
+    income3: string;
+    profit1: string;
+    profit2: string;
+    profit3: string;
+    investorType: string;
+    servicesType: string;
+    investFrom: string;
+    investTo: string;
+    logo: string;
+}

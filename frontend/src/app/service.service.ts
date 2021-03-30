@@ -10,12 +10,25 @@ export class ServiceService {
 
   uri = 'http://localhost:4000'
 
-  // LOGIN
   login(username) {
     const data = {
       username: username
     }
     return this.http.post(`${this.uri}/login`, data);
+  }
+
+  getStartup(username) {
+    const data = {
+      username: username
+    }
+    return this.http.post(`${this.uri}/getStartup`, data);
+  }
+
+  getInvestor(username) {
+    const data = {
+      username: username
+    }
+    return this.http.post(`${this.uri}/getInvestor`, data);
   }
     
 }
