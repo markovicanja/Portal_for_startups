@@ -48,6 +48,94 @@ router.route('/getInvestor').post((req, res) => {
     });
 });
 
+router.route('/registerStartup').post((req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    let fullName = req.body.fullName;
+    let establishmentDate = req.body.establishmentDate;
+    let registrationNumber = req.body.registrationNumber;
+    let taxId = req.body.taxId;
+    let firstName = req.body.firstName;
+    let middleName = req.body.middleName;
+    let lastName = req.body.lastName;
+    let address = req.body.address;
+    let municipality = req.body.municipality;
+    let city = req.body.city;
+    let country = req.body.country;
+    let phoneNumber = req.body.phoneNumber;
+    let email = req.body.email;
+    let website = req.body.website;
+    let socialNetworks = req.body.socialNetworks;
+    let businessType = req.body.businessType;
+    let employeeNumber = req.body.employeeNumber;
+    let phase = req.body.phase;
+    let income1 = req.body.income1;
+    let income2 = req.body.income2;    
+    let income3 = req.body.income3;
+    let profit1 = req.body.profit1;
+    let profit2 = req.body.profit2;
+    let profit3 = req.body.profit3;
+    let projectProposal = req.body.projectProposal;
+    let amount = req.body.amount;
+    let ipStatus = req.body.ipStatus;
+    let patentInfo = req.body.patentInfo;
+    let logo = req.body.logo;
+
+    startup.collection.insertOne({'username' : username, 'password' : password, 'fullName' : fullName, 'establishmentDate' : establishmentDate,
+    'registrationNumber' : registrationNumber, 'taxId' : taxId, 'firstName' : firstName, 'middleName' : middleName, 'lastName' : lastName,
+    'address' : address, 'municipality' : municipality, 'city' : city, 'country' : country, 'phoneNumber' : phoneNumber, 'email' : email,
+    'website' : website, 'socialNetworks' : socialNetworks, 'businessType' : businessType, 'employeeNumber' : employeeNumber, 'phase' : phase, 
+    'income1' : income1, 'income2' : income2, 'income3' : income3, 'profit1' : profit1, 'profit2' : profit2, 'profit3' : profit3, 
+    'projectProposal' : projectProposal, 'amount' : amount, 'ipStatus' : ipStatus, 'patentInfo' : patentInfo, 'logo' : logo
+    });
+    user.collection.insertOne({'username' : username, 'password' : password, 'type' : "startup"});
+    res.json({message: 1});    
+});
+
+router.route('/registerInvestor').post((req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    let fullName = req.body.fullName;
+    let establishmentDate = req.body.establishmentDate;
+    let registrationNumber = req.body.registrationNumber;
+    let taxId = req.body.taxId;
+    let firstName = req.body.firstName;
+    let middleName = req.body.middleName;
+    let lastName = req.body.lastName;
+    let address = req.body.address;
+    let municipality = req.body.municipality;
+    let city = req.body.city;
+    let country = req.body.country;
+    let phoneNumber = req.body.phoneNumber;
+    let email = req.body.email;
+    let website = req.body.website;
+    let socialNetworks = req.body.socialNetworks;
+    let businessType = req.body.businessType;
+    let employeeNumber = req.body.employeeNumber;
+    let phase = req.body.phase;
+    let income1 = req.body.income1;
+    let income2 = req.body.income2;    
+    let income3 = req.body.income3;
+    let profit1 = req.body.profit1;
+    let profit2 = req.body.profit2;
+    let profit3 = req.body.profit3;
+    let investorType = req.body.investorType;
+    let servicesType = req.body.servicesType;
+    let investFrom = req.body.investFrom;
+    let investTo = req.body.investTo;
+    let logo = req.body.logo;
+
+    investor.collection.insertOne({'username' : username, 'password' : password, 'fullName' : fullName, 'establishmentDate' : establishmentDate,
+    'registrationNumber' : registrationNumber, 'taxId' : taxId, 'firstName' : firstName, 'middleName' : middleName, 'lastName' : lastName,
+    'address' : address, 'municipality' : municipality, 'city' : city, 'country' : country, 'phoneNumber' : phoneNumber, 'email' : email,
+    'website' : website, 'socialNetworks' : socialNetworks, 'businessType' : businessType, 'employeeNumber' : employeeNumber, 'phase' : phase, 
+    'income1' : income1, 'income2' : income2, 'income3' : income3, 'profit1' : profit1, 'profit2' : profit2, 'profit3' : profit3, 
+    'investorType' : investorType, 'servicesType' : servicesType, 'investFrom' : investFrom, 'investTo' : investTo, 'logo' : logo
+    });
+    user.collection.insertOne({'username' : username, 'password' : password, 'type' : "investor"});
+    res.json({message: 1});    
+});
+
 
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
