@@ -17,7 +17,6 @@ export class Investor {
     socialNetworks: string;
     businessType: string;
     employeeNumber: number;
-    phase: string;
     income1: string;
     income2: string;
     income3: string;

@@ -96,7 +96,7 @@ const Startup = new Schema({
         required: true
     },
     profit2: {
-        type: Number,
+        type: String,
         required: true
     },
     profit3: {
@@ -112,7 +112,7 @@ const Startup = new Schema({
         required: true
     },
     ipStatus: {
-        type: Number,
+        type: String,
         required: true
     },
     patentInfo: {

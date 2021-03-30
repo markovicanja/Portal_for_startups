@@ -78,10 +78,6 @@ const Investor = new Schema({
         type: Number,
         required: true
     },
-    phase: {
-        type: String,
-        required: true
-    },
     income1: {
         type: String,
         required: true
@@ -99,7 +95,7 @@ const Investor = new Schema({
         required: true
     },
     profit2: {
-        type: Number,
+        type: String,
         required: true
     },
     profit3: {
@@ -115,7 +111,7 @@ const Investor = new Schema({
         required: true
     },
     investFrom: {
-        type: Number,
+        type: String,
         required: true
     },
     investTo: {

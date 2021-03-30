@@ -71,11 +71,55 @@ export class ServiceService {
   }
 
   registerInvestor(username, password, fullName, establishmentDate, registrationNumber, taxId, firstName, middleName, lastName, address,
-    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, phase, 
+    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, 
     income1, income2, income3, profit1, profit2, profit3, investorType, servicesType, investFrom, investTo, logo) {
     const data = {
       username: username,
       password: password,
+      fullName: fullName,
+      establishmentDate: establishmentDate,
+      registrationNumber: registrationNumber,
+      taxId: taxId,
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName,
+      address: address,
+      municipality: municipality,
+      city: city,
+      country: country,
+      phoneNumber: phoneNumber,
+      email: email,
+      website: website,
+      socialNetworks: socialNetworks,
+      businessType: businessType,
+      employeeNumber: employeeNumber,
+      income1: income1,
+      income2: income2,
+      income3: income3,
+      profit1: profit1,
+      profit2: profit2,
+      profit3: profit3,
+      investorType: investorType,
+      servicesType: servicesType,
+      investFrom: investFrom,
+      investTo: investTo,
+      logo: logo
+    }
+    return this.http.post(`${this.uri}/registerInvestor`, data);
+  }
+
+  getUser(username) {
+    const data = {
+      username: username
+    }
+    return this.http.post(`${this.uri}/login`, data);
+  } 
+
+  updateStartup(username, fullName, establishmentDate, registrationNumber, taxId, firstName, middleName, lastName, address,
+    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, phase, 
+    income1, income2, income3, profit1, profit2, profit3, projectProposal, amount, ipStatus, patentInfo) {
+    const data = {
+      username: username,
       fullName: fullName,
       establishmentDate: establishmentDate,
       registrationNumber: registrationNumber,
@@ -100,20 +144,48 @@ export class ServiceService {
       profit1: profit1,
       profit2: profit2,
       profit3: profit3,
+      projectProposal: projectProposal,
+      amount: amount,
+      ipStatus: ipStatus,
+      patentInfo: patentInfo
+    }
+    return this.http.post(`${this.uri}/updateStartup`, data);
+  }
+
+  updateInvestor(username, fullName, establishmentDate, registrationNumber, taxId, firstName, middleName, lastName, address,
+    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, 
+    income1, income2, income3, profit1, profit2, profit3, investorType, servicesType, investFrom, investTo) {
+    const data = {
+      username: username,
+      fullName: fullName,
+      establishmentDate: establishmentDate,
+      registrationNumber: registrationNumber,
+      taxId: taxId,
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName,
+      address: address,
+      municipality: municipality,
+      city: city,
+      country: country,
+      phoneNumber: phoneNumber,
+      email: email,
+      website: website,
+      socialNetworks: socialNetworks,
+      businessType: businessType,
+      employeeNumber: employeeNumber,
+      income1: income1,
+      income2: income2,
+      income3: income3,
+      profit1: profit1,
+      profit2: profit2,
+      profit3: profit3,
       investorType: investorType,
       servicesType: servicesType,
       investFrom: investFrom,
-      investTo: investTo,
-      logo: logo
+      investTo: investTo
     }
-    return this.http.post(`${this.uri}/registerInvestor`, data);
+    return this.http.post(`${this.uri}/updateInvestor`, data);
   }
-
-  getUser(username) {
-    const data = {
-      username: username
-    }
-    return this.http.post(`${this.uri}/login`, data);
-  } 
     
 }

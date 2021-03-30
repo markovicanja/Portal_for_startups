@@ -86,7 +86,6 @@ export class RegisterComponent implements OnInit {
   socialNetworksInv: string;
   businessTypeInv: string;
   employeeNumberInv: number;
-  phaseInv: string;
   income1Inv: string;
   income2Inv: string;
   income3Inv: string;
@@ -122,7 +121,9 @@ export class RegisterComponent implements OnInit {
         }
         this.service.registerStartup(this.username, this.pass1, this.fullName, this.establishmentDate, this.registrationNumber, this.taxId, this.firstName, this.middleName, 
         this.lastName, this.address, this.municipality, this.city, this.country, this.phoneNumber, this.email, this.website, this.socialNetworks, this.businessType, this.employeeNumber, this.phase, 
-        this.income1, this.income2, this.income3, this.profit1, this.profit2, this.profit3, this.projectProposal, this.amount, this.ipStatus, this.patentInfo, this.fileInputLabel).subscribe(() => {});
+        this.income1, this.income2, this.income3, this.profit1, this.profit2, this.profit3, this.projectProposal, this.amount, this.ipStatus, this.patentInfo, this.fileInputLabel).subscribe(() => {
+          this.router.navigate(['login']);
+        });
       }
     })
   }
@@ -133,8 +134,8 @@ export class RegisterComponent implements OnInit {
       !this.registrationNumberInv || !this.taxIdInv || !this.firstNameInv || !this.middleNameInv || !this.lastNameInv ||
       !this.addressInv || !this.municipalityInv || !this.cityInv || !this.countryInv || !this.phoneNumberInv ||
       !this.emailInv || !this.websiteInv || !this.socialNetworksInv || !this.businessTypeInv || !this.employeeNumberInv ||
-      !this.phaseInv || !this.income1Inv || !this.income2Inv || !this.income3Inv || !this.profit1Inv ||
-      !this.profit2Inv || !this.profit3Inv || !this.investorType || !this.servicesType || !this.investFrom || !this.investTo || !this.fileInputLabel) {
+      !this.income1Inv || !this.income2Inv || !this.income3Inv || !this.profit1Inv || !this.profit2Inv || !this.profit3Inv || 
+      !this.investorType || !this.servicesType || !this.investFrom || !this.investTo || !this.fileInputLabel) {
       this.msgInvestor = "Please fill in all the fields.";
       return;
     }
@@ -149,8 +150,10 @@ export class RegisterComponent implements OnInit {
           return;
         }
         this.service.registerInvestor(this.usernameInv, this.pass1Inv, this.fullNameInv, this.establishmentDateInv, this.registrationNumberInv, this.taxIdInv, this.firstNameInv, this.middleNameInv, 
-        this.lastNameInv, this.addressInv, this.municipalityInv, this.cityInv, this.countryInv, this.phoneNumberInv, this.emailInv, this.websiteInv, this.socialNetworksInv, this.businessTypeInv, this.employeeNumberInv, this.phaseInv, 
-        this.income1Inv, this.income2Inv, this.income3Inv, this.profit1Inv, this.profit2Inv, this.profit3Inv, this.investorType, this.servicesType, this.investFrom, this.investTo, this.fileInputLabel).subscribe(() => {});
+        this.lastNameInv, this.addressInv, this.municipalityInv, this.cityInv, this.countryInv, this.phoneNumberInv, this.emailInv, this.websiteInv, this.socialNetworksInv, this.businessTypeInv, this.employeeNumberInv,
+        this.income1Inv, this.income2Inv, this.income3Inv, this.profit1Inv, this.profit2Inv, this.profit3Inv, this.investorType, this.servicesType, this.investFrom, this.investTo, this.fileInputLabel).subscribe(() => {
+          this.router.navigate(['login']);
+        });
       }
     })
   }
