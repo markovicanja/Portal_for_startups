@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem("user") != "") this.router.navigate(["home"]);
+    if (localStorage.getItem("user") != "") this.router.navigate(["profile"]);
     this.username = "";
     this.password = "";
   }
@@ -60,6 +60,10 @@ export class LoginComponent implements OnInit {
         this.msg = "Wrong credentials.";
       }
     });
+  }
+
+  resetPassword() {
+    alert("Reset");
   }
 
 }

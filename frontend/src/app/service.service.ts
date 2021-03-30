@@ -114,36 +114,22 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/login`, data);
   } 
-
-  updateStartup(username, fullName, establishmentDate, registrationNumber, taxId, firstName, middleName, lastName, address,
-    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, phase, 
-    income1, income2, income3, profit1, profit2, profit3, projectProposal, amount, ipStatus, patentInfo) {
+  
+  updateStartup(oldUsername, newUsername, password, fullName, taxId, address,
+    municipality, phoneNumber, email, website, businessType, 
+    projectProposal, amount, ipStatus, patentInfo) {
     const data = {
-      username: username,
+      oldUsername: oldUsername,
+      newUsername: newUsername,
+      password: password,
       fullName: fullName,
-      establishmentDate: establishmentDate,
-      registrationNumber: registrationNumber,
       taxId: taxId,
-      firstName: firstName,
-      middleName: middleName,
-      lastName: lastName,
       address: address,
       municipality: municipality,
-      city: city,
-      country: country,
       phoneNumber: phoneNumber,
       email: email,
       website: website,
-      socialNetworks: socialNetworks,
       businessType: businessType,
-      employeeNumber: employeeNumber,
-      phase: phase,
-      income1: income1,
-      income2: income2,
-      income3: income3,
-      profit1: profit1,
-      profit2: profit2,
-      profit3: profit3,
       projectProposal: projectProposal,
       amount: amount,
       ipStatus: ipStatus,
@@ -151,39 +137,21 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/updateStartup`, data);
   }
-
-  updateInvestor(username, fullName, establishmentDate, registrationNumber, taxId, firstName, middleName, lastName, address,
-    municipality, city, country, phoneNumber, email, website, socialNetworks, businessType, employeeNumber, 
-    income1, income2, income3, profit1, profit2, profit3, investorType, servicesType, investFrom, investTo) {
+  
+  updateInvestor(oldUsername, newUsername, password, fullName, taxId, address,
+    municipality, phoneNumber, email, website, businessType) {
     const data = {
-      username: username,
+      oldUsername: oldUsername,
+      newUsername: newUsername,
+      password: password,
       fullName: fullName,
-      establishmentDate: establishmentDate,
-      registrationNumber: registrationNumber,
       taxId: taxId,
-      firstName: firstName,
-      middleName: middleName,
-      lastName: lastName,
       address: address,
       municipality: municipality,
-      city: city,
-      country: country,
       phoneNumber: phoneNumber,
       email: email,
       website: website,
-      socialNetworks: socialNetworks,
-      businessType: businessType,
-      employeeNumber: employeeNumber,
-      income1: income1,
-      income2: income2,
-      income3: income3,
-      profit1: profit1,
-      profit2: profit2,
-      profit3: profit3,
-      investorType: investorType,
-      servicesType: servicesType,
-      investFrom: investFrom,
-      investTo: investTo
+      businessType: businessType
     }
     return this.http.post(`${this.uri}/updateInvestor`, data);
   }

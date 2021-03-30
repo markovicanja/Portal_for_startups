@@ -10,23 +10,23 @@
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="startup.username">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="startupPassword">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
                     </div>
                     <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="startup.fullName">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
-                    </div>
-                    <input name="establishmentDate" class="form-control" placeholder="Date of establishment" type="text" onfocus="(this.type='date')" [(ngModel)]="startup.establishmentDate">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-file-invoice"></i> </span>
-                    </div>
-                    <input name="registrationNumber" class="form-control" placeholder="Registration number" type="text" [(ngModel)]="startup.registrationNumber">
                 </div>
 
                 <div class="form-group input-group">
@@ -38,27 +38,10 @@
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                    </div>
-                    <input name="firstname" class="form-control" placeholder="First name" type="text" [(ngModel)]="startup.firstName">
-                    <input name="middlename" class="form-control" placeholder="Middle name" type="text" [(ngModel)]="startup.middleName">
-                    <input name="lastname" class="form-control" placeholder="Last name" type="text" [(ngModel)]="startup.lastName">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
                     </div>
                     <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="startup.address">
                     <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="startup.municipality">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
-                    </div>
-                    <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="startup.city">
-                    <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="startup.country">
                 </div>
                 
                 <div class="form-group input-group">
@@ -84,54 +67,9 @@
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-users"></i> </span>
-                    </div>
-                    <input name="socialNetworks" class="form-control" placeholder="Social networks (separated by comma)" type="text" [(ngModel)]="startup.socialNetworks">
-                </div> 
-                
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
                     </div>
                     <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="startup.businessType">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-user-tie"></i> </span>
-                    </div>
-                    <input name="employeeNumber" class="form-control" placeholder="Number of employees" type="number" [(ngModel)]="startup.employeeNumber">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-chart-line"></i> </span>
-                    </div>
-                    <select name="phase" class="form-control select" [(ngModel)]="startup.phase">
-                        <option value='' disabled selected hidden class="select-placeholder">Business phase</option>
-                        <option>Seed</option>
-                        <option>Growth</option>
-                        <option>Maturity</option>
-                        <option>Transition</option>
-                    </select>
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
-                    </div>
-                    <input name="income1" class="form-control" placeholder="Last year income" type="text" [(ngModel)]="startup.income1">
-                    <input name="income2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="startup.income2">
-                    <input name="income3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="startup.income3">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
-                    </div>
-                    <input name="profit1" class="form-control" placeholder="Last year profit" type="text" [(ngModel)]="startup.profit1">
-                    <input name="profit2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="startup.profit2">
-                    <input name="profit3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="startup.profit3">
                 </div>
 
                 <div class="form-group input-group">
@@ -176,23 +114,23 @@
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="investor.username">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="investorPassword">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
                     </div>
                     <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="investor.fullName">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
-                    </div>
-                    <input name="establishmentDate" class="form-control" placeholder="Date of establishment" type="text" onfocus="(this.type='date')" [(ngModel)]="investor.establishmentDate">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-file-invoice"></i> </span>
-                    </div>
-                    <input name="registrationNumber" class="form-control" placeholder="Registration number" type="text" [(ngModel)]="investor.registrationNumber">
                 </div>
 
                 <div class="form-group input-group">
@@ -204,27 +142,10 @@
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                    </div>
-                    <input name="firstname" class="form-control" placeholder="First name" type="text" [(ngModel)]="investor.firstName">
-                    <input name="middlename" class="form-control" placeholder="Middle name" type="text" [(ngModel)]="investor.middleName">
-                    <input name="lastname" class="form-control" placeholder="Last name" type="text" [(ngModel)]="investor.lastName">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
                     </div>
                     <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="investor.address">
                     <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="investor.municipality">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
-                    </div>
-                    <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="investor.city">
-                    <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="investor.country">
                 </div>
                 
                 <div class="form-group input-group">
@@ -250,68 +171,9 @@
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-users"></i> </span>
-                    </div>
-                    <input name="socialNetworks" class="form-control" placeholder="Social networks (separated by comma)" type="text" [(ngModel)]="investor.socialNetworks">
-                </div> 
-                
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
                     </div>
                     <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="investor.businessType">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-user-tie"></i> </span>
-                    </div>
-                    <input name="employeeNumber" class="form-control" placeholder="Number of employees" type="number" [(ngModel)]="investor.employeeNumber">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
-                    </div>
-                    <input name="income1" class="form-control" placeholder="Last year income" type="text" [(ngModel)]="investor.income1">
-                    <input name="income2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="investor.income2">
-                    <input name="income3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="investor.income3">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i> </span>
-                    </div>
-                    <input name="profit1" class="form-control" placeholder="Last year profit" type="text" [(ngModel)]="investor.profit1">
-                    <input name="profit2" class="form-control" placeholder="Two years ago" type="text" [(ngModel)]="investor.profit2">
-                    <input name="profit3" class="form-control" placeholder="Three years ago" type="text" [(ngModel)]="investor.profit3">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-building"></i> </span>
-                    </div>
-                    <select name="investorType" class="form-control select" [(ngModel)]="investor.investorType">
-                        <option value='' disabled selected hidden class="select-placeholder">Investor type</option>
-                        <option>Pre-investor</option>
-                        <option>Active investor</option>
-                        <option>Passive investor</option>
-                    </select>
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-tasks"></i> </span>
-                    </div>
-                    <input name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="investor.servicesType">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-coins"></i> </span>
-                    </div>
-                    <input name="investFrom" class="form-control" placeholder="Amount to invest from" type="text" [(ngModel)]="investor.investFrom">
-                    <input name="investTo" class="form-control" placeholder="Amount to invest to" type="text" [(ngModel)]="investor.investTo">
                 </div>
 
                 <div class="form-group">
