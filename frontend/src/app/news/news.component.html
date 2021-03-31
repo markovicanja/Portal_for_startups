@@ -1,0 +1,19 @@
+<div class="mt-3 text-center" *ngIf="loggedUser=='investor' || loggedUser=='startup'">
+    <button class="btn btn-primary" (click)="createNews()"><i class="fas fa-plus"></i> Add news</button>
+</div>
+<div class="mb-5">
+    <div *ngIf="news">
+        <div class="row justify-content-center">
+            <ng-container *ngFor="let n of news; let i = index; first as first">
+                <div class="card mx-3 my-3" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ n.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Published: {{ n.date }}, {{ n.time }}</h6>
+                    <p class="card-text">{{ n.text }}</p>
+                    <p class="card-subtitle mb-2 text-muted">Author: {{ n.author }}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./model/user"));
 const startup_1 = __importDefault(require("./model/startup"));
 const investor_1 = __importDefault(require("./model/investor"));
+const news_1 = __importDefault(require("./model/news"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -168,6 +169,44 @@ router.route('/updateInvestor').post((req, res) => {
             'taxId': taxId, 'address': address, 'municipality': municipality, 'phoneNumber': phoneNumber, 'email': email,
             'website': website, 'businessType': businessType } });
     user_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'password': password } });
+    res.json({ message: 1 });
+});
+router.route('/getAllStartups').get((req, res) => {
+    startup_1.default.find({}, (err, startup) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(startup);
+    });
+});
+router.route('/getAllInvestors').get((req, res) => {
+    investor_1.default.find({}, (err, investor) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(investor);
+    });
+});
+router.route('/getAllNews').get((req, res) => {
+    news_1.default.find({}, (err, news) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(news);
+    });
+});
+router.route('/insertNews').post((req, res) => {
+    let name = req.body.name;
+    let text = req.body.text;
+    let category = req.body.category;
+    let date = req.body.date;
+    let time = req.body.time;
+    let author = req.body.author;
+    let visibility = req.body.visibility;
+    let selectedStartups = req.body.selectedStartups;
+    let selectedInvestors = req.body.selectedInvestors;
+    news_1.default.collection.insertOne({ 'name': name, 'text': text, 'category': category, 'date': date, 'time': time, 'author': author,
+        'visibility': visibility, 'deleted': false, 'selectedStartups': selectedStartups, 'selectedInvestors': selectedInvestors });
     res.json({ message: 1 });
 });
 app.use('/', router);

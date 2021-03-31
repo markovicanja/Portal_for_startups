@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import user from './model/user';
 import startup from './model/startup';
 import investor from './model/investor';
+import news from './model/news';
 
 const app = express();
 
@@ -178,6 +179,43 @@ router.route('/updateInvestor').post((req, res) => {
     'website' : website, 'businessType' : businessType}});
     user.collection.updateOne({'username': oldUsername}, {$set: {'username': newUsername, 'password' : password}});
     res.json({message: 1});    
+});
+
+router.route('/getAllStartups').get((req, res) => {
+    startup.find({}, (err, startup) => {
+        if (err) console.log(err);
+        else res.json(startup);
+    });
+});
+
+router.route('/getAllInvestors').get((req, res) => {
+    investor.find({}, (err, investor) => {
+        if (err) console.log(err);
+        else res.json(investor);
+    });
+});
+
+router.route('/getAllNews').get((req, res) => {
+    news.find({}, (err, news) => {
+        if (err) console.log(err);
+        else res.json(news);
+    });
+});
+
+router.route('/insertNews').post((req, res) => {
+    let name = req.body.name;
+    let text = req.body.text;
+    let category = req.body.category;
+    let date = req.body.date;
+    let time = req.body.time;
+    let author = req.body.author;
+    let visibility = req.body.visibility;
+    let selectedStartups = req.body.selectedStartups;
+    let selectedInvestors = req.body.selectedInvestors;
+
+    news.collection.insertOne({'name' : name, 'text' : text, 'category' : category, 'date' : date, 'time' : time, 'author' : author, 
+    'visibility': visibility, 'deleted': false, 'selectedStartups': selectedStartups, 'selectedInvestors': selectedInvestors });
+    res.json({message: 1}); 
 });
 
 app.use('/', router);

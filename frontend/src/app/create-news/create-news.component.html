@@ -1,0 +1,56 @@
+<h4 class="mt-3 text-center">Create news</h4>
+<div style="max-width: 600px;" class="mx-auto">
+    <form name="investor-form" class="mt-3">
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-newspaper"></i> </span>
+            </div>
+            <input name="name" class="form-control" placeholder="Name" type="text" [(ngModel)]="createdNews.name">
+        </div>
+    
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Text" rows="3" name="text" [(ngModel)]="createdNews.text"></textarea>
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-folder-open"></i> </span>
+            </div>
+            <input name="category" class="form-control" placeholder="Category" type="text" [(ngModel)]="createdNews.category">
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-eye"></i> </span>
+            </div>
+            <select name="visibility" class="form-control select" [(ngModel)]="createdNews.visibility">
+                <option value='' disabled selected hidden class="select-placeholder">Visibility</option>
+                <option>Everyone</option>
+                <option>All startups</option>
+                <option>All investors</option>
+                <option>Selected startups</option>
+                <option>Selected investors</option>
+            </select>
+        </div>
+
+        <div class="form-group" *ngIf="allStartups && createdNews.visibility=='Selected startups'">
+            <label for="startups">Select startups</label>
+            <select multiple class="form-control" id="startups" [(ngModel)]="selectedStartups" name="selectedStartups">
+              <option *ngFor="let s of allStartups" [value]='s'>{{ s.fullName }}</option>
+            </select>
+        </div>
+
+        <div class="form-group" *ngIf="allInvestors && createdNews.visibility=='Selected investors'">
+            <label for="investors">Select investors</label>
+            <select multiple class="form-control" id="investors" [(ngModel)]="selectedInvestors" name="selectedInvestors">
+              <option *ngFor="let s of allInvestors" [value]='s'>{{ s.fullName }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input (click)="createNews()" type="submit" class="btn btn-primary btn-block" value="Create">
+        </div>
+
+    </form>
+</div>

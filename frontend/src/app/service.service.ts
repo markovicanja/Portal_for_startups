@@ -156,4 +156,31 @@ export class ServiceService {
     return this.http.post(`${this.uri}/updateInvestor`, data);
   }
     
+  getAllStartups() {
+    return this.http.get(`${this.uri}/getAllStartups`);
+  }
+
+  getAllInvestors() {
+    return this.http.get(`${this.uri}/getAllInvestors`);
+  }
+
+  getAllNews() {
+    return this.http.get(`${this.uri}/getAllNews`);
+  }
+
+  insertNews(name, text, category, date, time, author, visibility, selectedStartups, selectedInvestors) {
+    const data = {
+      name: name,
+      text: text,
+      category: category,
+      date: date,
+      time: time,
+      author: author,
+      visibility: visibility,
+      selectedStartups: selectedStartups,
+      selectedInvestors: selectedInvestors
+    }
+    return this.http.post(`${this.uri}/insertNews`, data);
+  }
+  
 }

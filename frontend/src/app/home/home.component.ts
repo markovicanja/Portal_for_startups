@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  joinUs() {
-    this.router.navigate(['register']);
+  seeMore() {
+    this.router.navigate(['news']);
   }
 
 }
