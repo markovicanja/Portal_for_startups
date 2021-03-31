@@ -182,5 +182,26 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/insertNews`, data);
   }
+
+  archiveNews(name) {
+    const data = {
+      name: name
+    }
+    return this.http.post(`${this.uri}/archiveNews`, data);
+  }
   
+  removeNews(name) {
+    const data = {
+      name: name
+    }
+    return this.http.post(`${this.uri}/removeNews`, data);
+  }
+  
+  deleteNews(name) {
+    const data = {
+      name: name
+    }
+    return this.http.post(`${this.uri}/deleteNews`, data);
+  }
+
 }

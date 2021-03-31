@@ -11,6 +11,18 @@
                     <h6 class="card-subtitle mb-2 text-muted">Published: {{ n.date }}, {{ n.time }}</h6>
                     <p class="card-text">{{ n.text }}</p>
                     <p class="card-subtitle mb-2 text-muted">Author: {{ n.author }}</p>
+                    <button class="btn btn-info mx-2" (click)="archive(n)" 
+                    *ngIf="(loggedUser=='investor' || loggedUser=='startup') && loggedUserFullName==n.author && n.visibility!='Archived'">
+                        <i class="fas fa-archive"></i>
+                    </button>                    
+                    <button class="btn btn-danger mx-2" (click)="remove(n)"
+                    *ngIf="(loggedUser=='investor' || loggedUser=='startup') && loggedUserFullName==n.author && n.deleted==false">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="btn btn-danger mx-2" (click)="delete(n)"
+                    *ngIf="loggedUser=='admin' && n.deleted == true">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                     </div>
                 </div>
             </ng-container>

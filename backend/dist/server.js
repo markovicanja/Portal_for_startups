@@ -209,6 +209,21 @@ router.route('/insertNews').post((req, res) => {
         'visibility': visibility, 'deleted': false, 'selectedStartups': selectedStartups, 'selectedInvestors': selectedInvestors });
     res.json({ message: 1 });
 });
+router.route('/archiveNews').post((req, res) => {
+    let name = req.body.name;
+    news_1.default.collection.updateOne({ 'name': name }, { $set: { 'visibility': "Archived" } });
+    res.json({ message: 1 });
+});
+router.route('/removeNews').post((req, res) => {
+    let name = req.body.name;
+    news_1.default.collection.updateOne({ 'name': name }, { $set: { 'deleted': true } });
+    res.json({ message: 1 });
+});
+router.route('/deleteNews').post((req, res) => {
+    let name = req.body.name;
+    news_1.default.collection.deleteOne({ 'name': name });
+    res.json({ message: 1 });
+});
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 //# sourceMappingURL=server.js.map
