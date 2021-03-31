@@ -177,6 +177,13 @@ router.route('/updateInvestor').post((req, res) => {
     user_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'password': password } });
     res.json({ message: 1 });
 });
+router.route('/updateUser').post((req, res) => {
+    let oldUsername = req.body.oldUsername;
+    let newUsername = req.body.newUsername;
+    let password = req.body.password;
+    user_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'password': password } });
+    res.json({ message: 1 });
+});
 router.route('/getAllStartups').get((req, res) => {
     startup_1.default.find({}, (err, startup) => {
         if (err)
@@ -191,6 +198,14 @@ router.route('/getAllInvestors').get((req, res) => {
             console.log(err);
         else
             res.json(investor);
+    });
+});
+router.route('/getAllUsers').get((req, res) => {
+    user_1.default.find({}, (err, user) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(user);
     });
 });
 router.route('/getAllNews').get((req, res) => {

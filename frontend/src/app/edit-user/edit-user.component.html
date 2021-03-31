@@ -1,1 +1,213 @@
-<p>edit-user works!</p>
+<div class="card">
+    <div class="card-body mx-auto">
+        
+        <h4 class="card-title mt-3 text-center">Edit user</h4>
+
+        <!-- Startup -->
+        <div class="mb-3 text-center" style="max-width: 600px" *ngIf="userType=='startup'">
+
+            <form name="startup-form" class="mt-3" enctype="multipart/form-data">
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="startup.username">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="startupPassword">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                    </div>
+                    <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="startup.fullName">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-alt"></i> </span>
+                    </div>
+                    <input name="taxId" class="form-control" placeholder="Tax ID" type="text" [(ngModel)]="startup.taxId">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
+                    </div>
+                    <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="startup.address">
+                    <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="startup.municipality">
+                </div>
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <input name="phoneNumber" class="form-control" placeholder="Phone" type="text" [(ngModel)]="startup.phoneNumber">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email" type="text" [(ngModel)]="startup.email">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
+                    </div>
+                    <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="startup.website">
+                </div> 
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
+                    </div>
+                    <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="startup.businessType">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-map"></i> </span>
+                    </div>
+                    <input name="projectProposal" class="form-control" placeholder="Project proposal" type="text" [(ngModel)]="startup.projectProposal">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-dollar-sign"></i> </span>
+                    </div>
+                    <input name="amount" class="form-control" placeholder="Amount" type="text" [(ngModel)]="startup.amount">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-copyright"></i></span>
+                    </div>
+                    <input name="ipStatus" class="form-control" placeholder="Intellectual property status" type="text" [(ngModel)]="startup.ipStatus">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                    </div>
+                    <input name="patentInfo" class="form-control" placeholder="Patent information" type="text" [(ngModel)]="startup.patentInfo">
+                </div>
+
+                <div class="form-group">
+                    <input (click)="updateStartup()" type="submit" class="btn btn-primary btn-block" value="Update">
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Investor -->
+        <div class="mb-3 text-center" style="max-width: 600px" *ngIf="userType=='investor'">
+
+            <form name="startup-form" class="mt-3" enctype="multipart/form-data">
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="investor.username">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="investorPassword">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                    </div>
+                    <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="investor.fullName">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-alt"></i> </span>
+                    </div>
+                    <input name="taxId" class="form-control" placeholder="Tax ID" type="text" [(ngModel)]="investor.taxId">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
+                    </div>
+                    <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="investor.address">
+                    <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="investor.municipality">
+                </div>
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <input name="phoneNumber" class="form-control" placeholder="Phone" type="text" [(ngModel)]="investor.phoneNumber">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email" type="text" [(ngModel)]="investor.email">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
+                    </div>
+                    <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="investor.website">
+                </div> 
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
+                    </div>
+                    <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="investor.businessType">
+                </div>
+
+                <div class="form-group">
+                    <input (click)="updateInvestor()" type="submit" class="btn btn-primary btn-block" value="Update">
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Admin -->
+        <div class="mb-3 text-center" style="max-width: 600px" *ngIf="userType=='admin'">
+
+            <form name="startup-form" class="mt-3" enctype="multipart/form-data">
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="admin.username">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="admin.password">
+                </div>
+
+                <div class="form-group">
+                    <input (click)="updateAdmin()" type="submit" class="btn btn-primary btn-block" value="Update">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>

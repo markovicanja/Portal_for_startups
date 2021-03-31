@@ -163,6 +163,16 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/updateInvestor`, data);
   }
+
+  updateUser(oldUsername, newUsername, password) {
+    const data = {
+      oldUsername: oldUsername,
+      newUsername: newUsername,
+      password: password
+    }
+    return this.http.post(`${this.uri}/updateUser`, data);
+  }
+
     
   getAllStartups() {
     return this.http.get(`${this.uri}/getAllStartups`);
@@ -170,6 +180,10 @@ export class ServiceService {
 
   getAllInvestors() {
     return this.http.get(`${this.uri}/getAllInvestors`);
+  }
+
+  getAllUsers() {
+    return this.http.get(`${this.uri}/getAllUsers`);
   }
 
   getAllNews() {

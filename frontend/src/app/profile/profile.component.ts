@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit {
     }
     this.getAllStartups();
     this.getAllInvestors();
+    this.getAllAdmins();
   }
 
   userType: string;
@@ -42,6 +43,7 @@ export class ProfileComponent implements OnInit {
   startupPassword: string;
   allStartups: Startup[];
   allInvestors: Investor[];
+  allAdmins: User[];
 
   updateStartup() {
     this.service.updateStartup(this.startupUsername, this.startup.username, this.startupPassword, this.startup.fullName,
@@ -84,12 +86,31 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  editStartup(startup: Startup) {
+  getAllAdmins() {
+    this.allAdmins = [];
+    this.service.getAllUsers().subscribe((user: User[]) => {
+      user.forEach(u => {
+        if (u.type == 'admin') this.allAdmins.push(u);
+      })
+    })
+  }
 
+  editStartup(startup: Startup) {
+    localStorage.setItem("edit", "startup");
+    localStorage.setItem("editStartup", JSON.stringify(startup));
+    this.router.navigate(["editUser"]);
   }
 
   editInvestor(investor: Investor) {
+    localStorage.setItem("edit", "investor");
+    localStorage.setItem("editInvestor", JSON.stringify(investor));
+    this.router.navigate(["editUser"]);
+  }
 
+  editAdmin(admin: User) {
+    localStorage.setItem("edit", "admin");
+    localStorage.setItem("editAdmin", JSON.stringify(admin));
+    this.router.navigate(["editUser"]);
   }
 
   addUser() {
