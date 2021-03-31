@@ -130,6 +130,12 @@ router.route('/registerInvestor').post((req, res) => {
     user_1.default.collection.insertOne({ 'username': username, 'password': password, 'type': "investor" });
     res.json({ message: 1 });
 });
+router.route('/registerAdmin').post((req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    user_1.default.collection.insertOne({ 'username': username, 'password': password, 'type': "admin" });
+    res.json({ message: 1 });
+});
 router.route('/updateStartup').post((req, res) => {
     let oldUsername = req.body.oldUsername;
     let newUsername = req.body.newUsername;

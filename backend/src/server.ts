@@ -136,6 +136,14 @@ router.route('/registerInvestor').post((req, res) => {
     res.json({message: 1});    
 });
 
+router.route('/registerAdmin').post((req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+
+    user.collection.insertOne({'username' : username, 'password' : password, 'type' : "admin"});
+    res.json({message: 1});    
+});
+
 router.route('/updateStartup').post((req, res) => {
     let oldUsername = req.body.oldUsername;
     let newUsername = req.body.newUsername;

@@ -108,6 +108,14 @@ export class ServiceService {
     return this.http.post(`${this.uri}/registerInvestor`, data);
   }
 
+  registerAdmin(username, password) {
+    const data = {
+      username: username,
+      password: password
+    }
+    return this.http.post(`${this.uri}/registerAdmin`, data);
+  }
+
   getUser(username) {
     const data = {
       username: username

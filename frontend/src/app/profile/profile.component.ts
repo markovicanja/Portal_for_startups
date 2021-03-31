@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem("userObject"));
       this.investorPassword = this.user.password;
     }
+    this.getAllStartups();
+    this.getAllInvestors();
   }
 
   userType: string;
@@ -38,6 +40,8 @@ export class ProfileComponent implements OnInit {
   startupUsername: string;
   investorPassword: string;
   startupPassword: string;
+  allStartups: Startup[];
+  allInvestors: Investor[];
 
   updateStartup() {
     this.service.updateStartup(this.startupUsername, this.startup.username, this.startupPassword, this.startup.fullName,
@@ -66,6 +70,30 @@ export class ProfileComponent implements OnInit {
           this.investor = inv;
         })        
     });
+  }
+
+  getAllStartups() {
+    this.service.getAllStartups().subscribe((startups: Startup[]) => {
+      this.allStartups = startups;
+    })
+  }
+
+  getAllInvestors() {
+    this.service.getAllInvestors().subscribe((investors: Investor[]) => {
+      this.allInvestors = investors;
+    })
+  }
+
+  editStartup(startup: Startup) {
+
+  }
+
+  editInvestor(investor: Investor) {
+
+  }
+
+  addUser() {
+    this.router.navigate(['addUser']);
   }
 
 }

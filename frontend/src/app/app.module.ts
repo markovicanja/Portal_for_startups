@@ -15,6 +15,8 @@ import { CreateNewsComponent } from './create-news/create-news.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddUsersComponent } from './add-users/add-users.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ContactComponent } from './contact/contact.component';
     CreateNewsComponent,
     TermsOfUseComponent,
     PrivacyPolicyComponent,
-    ContactComponent
+    ContactComponent,
+    AddUsersComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
