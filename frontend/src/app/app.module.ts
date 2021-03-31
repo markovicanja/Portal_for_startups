@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './news/news.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
+import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CreateNewsComponent } from './create-news/create-news.component';
     RegisterComponent,
     ProfileComponent,
     NewsComponent,
-    CreateNewsComponent
+    CreateNewsComponent,
+    TermsOfUseComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
