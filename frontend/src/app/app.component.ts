@@ -15,10 +15,14 @@ export class AppComponent {
   ngOnInit(): void {
     if (localStorage.getItem("user") == "")
       this.sessionValid = false;
-    else this.sessionValid = true;
+    else {
+      this.sessionValid = true;
+      this.loggedUser = localStorage.getItem("user");
+    }
   }    
 
   sessionValid: boolean;
+  loggedUser: string;
 
   logout() {
     localStorage.setItem("user", "");

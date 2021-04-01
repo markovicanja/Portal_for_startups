@@ -11,6 +11,7 @@ const user_1 = __importDefault(require("./model/user"));
 const startup_1 = __importDefault(require("./model/startup"));
 const investor_1 = __importDefault(require("./model/investor"));
 const news_1 = __importDefault(require("./model/news"));
+const survey_1 = __importDefault(require("./model/survey"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -244,6 +245,14 @@ router.route('/deleteNews').post((req, res) => {
     let name = req.body.name;
     news_1.default.collection.deleteOne({ 'name': name });
     res.json({ message: 1 });
+});
+router.route('/getAllSurveys').get((req, res) => {
+    survey_1.default.find({}, (err, surveys) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(surveys);
+    });
 });
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));

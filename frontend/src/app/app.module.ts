@@ -17,6 +17,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ContactComponent } from './contact/contact.component';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { SurveyComponent } from './survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     PrivacyPolicyComponent,
     ContactComponent,
     AddUsersComponent,
-    EditUserComponent
+    EditUserComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,

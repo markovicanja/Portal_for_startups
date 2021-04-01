@@ -1,0 +1,37 @@
+<h4 class="card-title mt-3 text-center">Surveys</h4>
+
+<!--Startup-->
+<div class="mx-auto mb-5" style="max-width: 800px">
+    <h6>Number of filled surveys: {{ filledSurveys.length }}</h6>
+    <h6>Number of surveys to fill: {{ unfilledSurveys.length }}</h6>
+
+    <div *ngFor="let s of filledSurveys">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ s.name }}
+                    <span class="text-success text-sm"><i class="fas fa-check"></i></span>    
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ s.author }}</h6>
+                <button (click)="statistics(s)" type="button" class="btn btn-primary mx-2">
+                    <i class="fas fa-chart-pie"></i>
+                </button> 
+            </div>
+        </div>
+    </div>
+    
+    <div *ngFor="let s of unfilledSurveys">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ s.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ s.author }}</h6>
+                <button (click)="fill(s)" type="button" class="btn btn-success mx-2">
+                    <i class="fas fa-check"></i>
+                </button>   
+                <button (click)="remove(s)" type="button" class="btn btn-danger mx-2">
+                    <i class="fas fa-times"></i>
+                </button>   
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -10,6 +10,7 @@ import { NewsComponent } from './news/news.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { SurveyComponent } from './survey/survey.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'addUser', component: AddUsersComponent },
   { path: 'editUser', component: EditUserComponent },
+  { path: 'survey', component: SurveyComponent },
 ];
 
 @NgModule({

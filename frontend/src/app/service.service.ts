@@ -226,4 +226,8 @@ export class ServiceService {
     return this.http.post(`${this.uri}/deleteNews`, data);
   }
 
+  getAllSurveys() {
+    return this.http.get(`${this.uri}/getAllSurveys`);
+  }
+
 }

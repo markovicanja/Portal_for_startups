@@ -6,6 +6,7 @@ import user from './model/user';
 import startup from './model/startup';
 import investor from './model/investor';
 import news from './model/news';
+import survey from './model/survey';
 
 const app = express();
 
@@ -261,6 +262,13 @@ router.route('/deleteNews').post((req, res) => {
 
     news.collection.deleteOne({'name': name});
     res.json({message: 1});  
+});
+
+router.route('/getAllSurveys').get((req, res) => {
+    survey.find({}, (err, surveys) => {
+        if (err) console.log(err);
+        else res.json(surveys);
+    });
 });
 
 app.use('/', router);
