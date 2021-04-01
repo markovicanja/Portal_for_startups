@@ -18,6 +18,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { SurveyComponent } from './survey/survey.component';
+import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
+import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { SurveyComponent } from './survey/survey.component';
     ContactComponent,
     AddUsersComponent,
     EditUserComponent,
-    SurveyComponent
+    SurveyComponent,
+    SurveyStatisticsComponent,
+    FillSurveyComponent
   ],
   imports: [
     BrowserModule,

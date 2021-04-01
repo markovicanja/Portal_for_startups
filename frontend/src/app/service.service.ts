@@ -230,4 +230,12 @@ export class ServiceService {
     return this.http.get(`${this.uri}/getAllSurveys`);
   }
 
+  removeSurveyForStartup(name, fullName) {
+    const data = {
+      name: name,
+      fullName: fullName
+    }
+    return this.http.post(`${this.uri}/removeSurveyForStartup`, data);
+  }
+
 }

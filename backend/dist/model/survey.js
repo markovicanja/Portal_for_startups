@@ -17,7 +17,16 @@ const Survey = new Schema({
                     required: true
                 },
                 answers: {
-                    type: [String],
+                    type: [{
+                            answer: {
+                                type: String,
+                                required: true
+                            },
+                            counter: {
+                                type: Number,
+                                required: true
+                            }
+                        }],
                     required: true
                 }
             }],

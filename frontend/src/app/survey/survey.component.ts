@@ -39,14 +39,33 @@ export class SurveyComponent implements OnInit {
       surveys.forEach(s => {
         let found = false;
         s.filled.forEach(filled => {
-          if (filled.startup == this.startup.fullName) {
+          if (filled.startup == this.startup.fullName && filled.answers != null) {
             this.filledSurveys.push(s);
+            found = true;
+          }
+          else if (filled.startup == this.startup.fullName && filled.answers == null) {
             found = true;
           }
         })
         if (!found) this.unfilledSurveys.push(s);
       })
     });
+  }
+
+  statistics(survey: Survey) {
+    localStorage.setItem("selectedSurvey", JSON.stringify(survey));
+    this.router.navigate(['surveyStatistics']);
+  }
+  
+  fill(survey: Survey) {
+    localStorage.setItem("selectedSurvey", JSON.stringify(survey));
+    this.router.navigate(['fillSurvey']);
+  }
+  
+  remove(survey: Survey) {
+    this.service.removeSurveyForStartup(survey.name, this.startup.fullName).subscribe(() => {
+      this.getAllStartupSurveys();
+    })
   }
 
 }

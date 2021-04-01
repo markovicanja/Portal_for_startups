@@ -4,12 +4,14 @@ import { AddUsersComponent } from './add-users/add-users.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
 import { SurveyComponent } from './survey/survey.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'addUser', component: AddUsersComponent },
   { path: 'editUser', component: EditUserComponent },
   { path: 'survey', component: SurveyComponent },
+  { path: 'surveyStatistics', component: SurveyStatisticsComponent },
+  { path: 'fillSurvey', component: FillSurveyComponent },
 ];
 
 @NgModule({

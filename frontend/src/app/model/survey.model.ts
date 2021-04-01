@@ -3,7 +3,12 @@ export class Survey {
     questions: [
         {
             question: string,
-            answers: Array<string>
+            answers: [
+                {
+                    answer: string,
+                    counter: number
+                }
+            ]
         }
     ];
     public: boolean;

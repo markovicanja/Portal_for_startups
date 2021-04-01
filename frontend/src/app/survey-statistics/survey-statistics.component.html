@@ -1,0 +1,17 @@
+<h4 class="card-title mt-3 text-center">{{ survey.name }}</h4>
+
+<div class="mx-auto mb-5" style="max-width: 800px">
+
+    <div *ngFor="let q of survey.questions">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ q.question }}</h5>
+                <div *ngFor="let a of q.answers">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ a.answer }} - {{ a.counter / survey.filled.length * 100 }} %</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
