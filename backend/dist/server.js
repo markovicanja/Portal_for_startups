@@ -264,6 +264,13 @@ router.route('/removeSurveyForStartup').post((req, res) => {
     survey_1.default.collection.updateOne({ 'name': name }, { $push: { 'filled': filled } });
     res.json({ message: 1 });
 });
+router.route('/setSurveyAnswers').post((req, res) => {
+    let name = req.body.name;
+    let questions = req.body.questions;
+    let filled = req.body.filled;
+    survey_1.default.collection.updateOne({ 'name': name }, { $push: { 'filled': filled }, $set: { 'questions': questions } });
+    res.json({ message: 1 });
+});
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 //# sourceMappingURL=server.js.map

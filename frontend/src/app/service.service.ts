@@ -238,4 +238,13 @@ export class ServiceService {
     return this.http.post(`${this.uri}/removeSurveyForStartup`, data);
   }
 
+  setSurveyAnswers(name, questions, filled) {
+    const data = {
+      name: name,
+      questions: questions,
+      filled: filled
+    }
+    return this.http.post(`${this.uri}/setSurveyAnswers`, data);
+  }
+
 }

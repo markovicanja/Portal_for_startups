@@ -1,1 +1,20 @@
-<p>fill-survey works!</p>
+<h4 class="card-title mt-3 text-center">{{ survey.name }}</h4>
+
+<form class="mx-auto mb-5" style="max-width: 800px">
+
+
+    <div *ngFor="let q of survey.questions; let i = index">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ q.question }}</h5>
+                <div *ngFor="let a of q.answers">
+                    <input type="radio" id="enum_answer_{{a.answer}}" [value]="a.answer" name='{{ q.question }}' [(ngModel)]='answers[i]'>
+                    <label for='enum_answer_{{a.answer}}' class="card-subtitle mb-2 mx-2">{{ a.answer }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input (click)="submitSurvey()" type="submit" class="btn btn-primary btn-block" value="Submit">
+    
+</form>
