@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -21,6 +30,7 @@ conn.once('open', () => {
     console.log('mongo open');
 });
 const router = express_1.default.Router();
+/***** ROUTES *****/
 router.route('/login').post((req, res) => {
     let username = req.body.username;
     user_1.default.findOne({ 'username': username }, (err, user) => {
@@ -279,6 +289,39 @@ router.route('/insertSurvey').post((req, res) => {
     survey_1.default.collection.insertOne({ 'name': name, 'author': author, 'questions': questions, 'public': isPublic, 'filled': [] });
     res.json({ message: 1 });
 });
+/***** NODE MAILER *****/
+var nodemailer = require('nodemailer');
+const details = require("../details.json");
+app.post("/sendmail", (req, res) => {
+    let user = req.body.user;
+    sendMail(user, (info) => {
+        console.log('********** Mail is sent **********');
+        res.send(info);
+    });
+});
+function sendMail(user, callback) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: details.email,
+                pass: details.password
+            }
+        });
+        let mailOptions = {
+            from: 'support@startus.com',
+            to: user.email,
+            subject: "Welcome to StartUs",
+            html: `<h1>Hi ${user.name}</h1><br>
+      <h4>Thanks for joining us</h4>`
+        };
+        // send mail with defined transport object
+        let info = yield transporter.sendMail(mailOptions);
+        callback(info);
+    });
+}
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 //# sourceMappingURL=server.js.map

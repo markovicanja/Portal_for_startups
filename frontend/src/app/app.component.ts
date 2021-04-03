@@ -29,6 +29,7 @@ export class AppComponent {
     localStorage.setItem("admin", null);
     localStorage.setItem("startup", null);
     localStorage.setItem("investor", null);
+    this.loggedUser = "";
     this.sessionValid = false;
     this.router.navigate(["home"]);
   }

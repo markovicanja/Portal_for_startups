@@ -23,6 +23,8 @@ conn.once('open', () => {
 
 const router = express.Router();
 
+/***** ROUTES *****/
+
 router.route('/login').post((req, res) => {
     let username = req.body.username;
     
@@ -301,6 +303,42 @@ router.route('/insertSurvey').post((req, res) => {
     survey.collection.insertOne({'name': name, 'author': author, 'questions': questions, 'public': isPublic, 'filled': []});
     res.json({message: 1});  
 });
+
+/***** NODE MAILER *****/
+var nodemailer = require('nodemailer');
+const details = require("../details.json");
+
+app.post("/sendmail", (req, res) => {
+    let user = req.body.user;
+
+    sendMail(user, (info: { messageId: any; }) => {
+        console.log('********** Mail is sent **********');
+        res.send(info);
+    });
+});
+
+async function sendMail(user: { email: any; name: any; }, callback: { (info: any): void; (arg0: any): void; }) {
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: details.email,
+        pass: details.password
+      }
+    });
+  
+    let mailOptions = {
+      from: 'support@startus.com',
+      to: user.email,
+      subject: "Welcome to StartUs",
+      html: `<h1>Hi ${ user.name }</h1><br>
+      <h4>Thanks for joining us</h4>`
+    };
+  
+    let info = await transporter.sendMail(mailOptions);  
+    callback(info);
+}
 
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));

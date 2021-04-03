@@ -122,7 +122,13 @@ export class RegisterComponent implements OnInit {
         this.service.registerStartup(this.username, this.pass1, this.fullName, this.establishmentDate, this.registrationNumber, this.taxId, this.firstName, this.middleName, 
         this.lastName, this.address, this.municipality, this.city, this.country, this.phoneNumber, this.email, this.website, this.socialNetworks, this.businessType, this.employeeNumber, this.phase, 
         this.income1, this.income2, this.income3, this.profit1, this.profit2, this.profit3, this.projectProposal, this.amount, this.ipStatus, this.patentInfo, this.fileInputLabel).subscribe(() => {
-          this.router.navigate(['login']);
+          let user = {
+            name: this.fullName,
+            email: this.email
+          }
+          this.service.sendmail(user).subscribe(() => {
+            this.router.navigate(['login']);
+          });
         });
       }
     })
@@ -152,7 +158,13 @@ export class RegisterComponent implements OnInit {
         this.service.registerInvestor(this.usernameInv, this.pass1Inv, this.fullNameInv, this.establishmentDateInv, this.registrationNumberInv, this.taxIdInv, this.firstNameInv, this.middleNameInv, 
         this.lastNameInv, this.addressInv, this.municipalityInv, this.cityInv, this.countryInv, this.phoneNumberInv, this.emailInv, this.websiteInv, this.socialNetworksInv, this.businessTypeInv, this.employeeNumberInv,
         this.income1Inv, this.income2Inv, this.income3Inv, this.profit1Inv, this.profit2Inv, this.profit3Inv, this.investorType, this.servicesType, this.investFrom, this.investTo, this.fileInputLabel).subscribe(() => {
-          this.router.navigate(['login']);
+          let user = {
+            name: this.fullName,
+            email: this.email
+          }
+          this.service.sendmail(user).subscribe(() => {
+            this.router.navigate(['login']);
+          });
         });
       }
     })

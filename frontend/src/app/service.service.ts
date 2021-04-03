@@ -257,4 +257,11 @@ export class ServiceService {
     return this.http.post(`${this.uri}/insertSurvey`, data);
   }
 
+  sendmail(user) {
+    const data = {
+      user: user
+    }
+    return this.http.post(`${this.uri}/sendmail`, data);
+  }
+
 }
