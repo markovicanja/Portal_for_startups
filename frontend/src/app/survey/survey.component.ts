@@ -22,6 +22,7 @@ export class SurveyComponent implements OnInit {
     }
     else if (this.loggedUser == 'investor') {
       this.investor = JSON.parse(localStorage.getItem('investor'));
+      this.getAllInvestrorSurveys();
     }
     
   }
@@ -31,6 +32,7 @@ export class SurveyComponent implements OnInit {
   investor: Investor;
   filledSurveys: Survey[];
   unfilledSurveys: Survey[];
+  publicSurveys: Survey[];
 
   getAllStartupSurveys() {
     this.filledSurveys = [];
@@ -52,6 +54,15 @@ export class SurveyComponent implements OnInit {
     });
   }
 
+  getAllInvestrorSurveys() {
+    this.publicSurveys = [];
+    this.service.getAllSurveys().subscribe((surveys: Survey[]) => {
+      surveys.forEach(s => {
+        if (s.author == this.investor.fullName || s.public == true) this.publicSurveys.push(s);
+      });
+    });
+  }
+
   statistics(survey: Survey) {
     localStorage.setItem("selectedSurvey", JSON.stringify(survey));
     this.router.navigate(['surveyStatistics']);
@@ -66,6 +77,10 @@ export class SurveyComponent implements OnInit {
     this.service.removeSurveyForStartup(survey.name, this.startup.fullName).subscribe(() => {
       this.getAllStartupSurveys();
     })
+  }
+
+  createSurvey() {
+    this.router.navigate(['createSurvey']);
   }
 
 }

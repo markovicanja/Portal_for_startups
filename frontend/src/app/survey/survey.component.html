@@ -1,7 +1,7 @@
 <h4 class="card-title mt-3 text-center">Surveys</h4>
 
 <!--Startup-->
-<div class="mx-auto mb-5" style="max-width: 800px">
+<div class="mx-auto mb-5" style="max-width: 800px" *ngIf='loggedUser == "startup"'>
     <h6>Number of filled surveys: {{ filledSurveys.length }}</h6>
     <h6>Number of surveys to fill: {{ unfilledSurveys.length }}</h6>
 
@@ -33,5 +33,26 @@
             </div>
         </div>
     </div>
+</div>
+
+<!--Investor-->
+<div class="mx-auto mb-5" style="max-width: 800px" *ngIf='loggedUser == "investor"'>
+
+    <div class="mt-3 text-center">
+        <button class="btn btn-primary" (click)="createSurvey()"><i class="fas fa-plus"></i> Create survey</button>
+    </div>
+
+    <div *ngFor="let s of publicSurveys">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ s.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ s.author }}</h6>
+                <button (click)="statistics(s)" type="button" class="btn btn-primary mx-2">
+                    <i class="fas fa-chart-pie"></i>
+                </button> 
+            </div>
+        </div>
+    </div>
+
 </div>
 

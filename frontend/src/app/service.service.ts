@@ -247,4 +247,14 @@ export class ServiceService {
     return this.http.post(`${this.uri}/setSurveyAnswers`, data);
   }
 
+  insertSurvey(name, author, isPublic, questions) {
+    const data = {
+      name: name,
+      author: author,
+      questions: questions,
+      isPublic: isPublic
+    }
+    return this.http.post(`${this.uri}/insertSurvey`, data);
+  }
+
 }

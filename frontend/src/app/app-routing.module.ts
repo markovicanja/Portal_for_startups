@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
+import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent },
   { path: 'surveyStatistics', component: SurveyStatisticsComponent },
   { path: 'fillSurvey', component: FillSurveyComponent },
+  { path: 'createSurvey', component: CreateSurveyComponent },
 ];
 
 @NgModule({
