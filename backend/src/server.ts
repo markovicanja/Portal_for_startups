@@ -34,6 +34,17 @@ router.route('/login').post((req, res) => {
     });
 });
 
+router.route('/loginWithNewPassword').post((req, res) => {
+    let username = req.body.username;
+    let newPassword = req.body.newPassword;
+    
+    user.collection.updateOne({'username': username}, {$set: {'password' : newPassword}});
+    user.findOne({'username' : username}, (err, user) => {
+        if (err) console.log(err);
+        else res.json(user);
+    });    
+});
+
 router.route('/getStartup').post((req, res) => {
     let username = req.body.username;
     
@@ -332,8 +343,41 @@ async function sendMail(user: { email: any; name: any; }, callback: { (info: any
       from: 'support@startus.com',
       to: user.email,
       subject: "Welcome to StartUs",
-      html: `<h1>Hi ${ user.name }</h1><br>
+      html: `<h1>Hello ${ user.name }</h1><br>
       <h4>Thanks for joining us</h4>`
+    };
+  
+    let info = await transporter.sendMail(mailOptions);  
+    callback(info);
+}
+
+app.post("/resetPassword", (req, res) => {
+    let user = req.body.user;
+
+    resetPassword(user, (info: { messageId: any; }) => {
+        console.log('********** Reset password is sent **********');
+        res.send(info);
+    });
+});
+
+async function resetPassword(user: { email: any; name: any; newPassword: any }, callback: { (info: any): void; (arg0: any): void; }) {
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: details.email,
+        pass: details.password
+      }
+    });
+  
+    let mailOptions = {
+      from: 'support@startus.com',
+      to: user.email,
+      subject: "Reset password",
+      html: `<h1>Hello ${ user.name }</h1><br>
+      <h4>You are receiving this mail because we have received a password reset request from your account. Your new 
+      password is ${ user.newPassword }, and it will expire in 10 minutes.</h4>`
     };
   
     let info = await transporter.sendMail(mailOptions);  

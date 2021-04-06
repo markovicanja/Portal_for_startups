@@ -17,6 +17,14 @@ export class ServiceService {
     return this.http.post(`${this.uri}/login`, data);
   }
 
+  loginWithNewPassword(username, newPassword) {
+    const data = {
+      username: username,
+      newPassword: newPassword
+    }
+    return this.http.post(`${this.uri}/loginWithNewPassword`, data);
+  }
+
   getStartup(username) {
     const data = {
       username: username
@@ -262,6 +270,13 @@ export class ServiceService {
       user: user
     }
     return this.http.post(`${this.uri}/sendmail`, data);
+  }
+
+  resetPassword(user) {
+    const data = {
+      user: user
+    }
+    return this.http.post(`${this.uri}/resetPassword`, data);
   }
 
 }
