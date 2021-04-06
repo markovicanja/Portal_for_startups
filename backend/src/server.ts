@@ -375,9 +375,11 @@ async function resetPassword(user: { email: any; name: any; newPassword: any }, 
       from: 'support@startus.com',
       to: user.email,
       subject: "Reset password",
-      html: `<h1>Hello ${ user.name }</h1><br>
-      <h4>You are receiving this mail because we have received a password reset request from your account. Your new 
-      password is ${ user.newPassword }, and it will expire in 10 minutes.</h4>`
+      html: `<h3>Hello ${ user.name }</h3><br>
+      <p>You are receiving this mail because we have received a password reset request from your account. Your new 
+      password is:</p> 
+      <h3>${ user.newPassword }</h3>
+      <p>It will expire in 10 minutes.</p>`
     };
   
     let info = await transporter.sendMail(mailOptions);  
