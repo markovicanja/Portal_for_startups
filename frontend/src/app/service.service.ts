@@ -279,4 +279,44 @@ export class ServiceService {
     return this.http.post(`${this.uri}/resetPassword`, data);
   }
 
+  getAllNotifications() {
+    return this.http.get(`${this.uri}/getAllNotifications`);
+  }
+
+  archiveNotification(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/archiveNotification`, data);
+  }
+  
+  removeNotification(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/removeNotification`, data);
+  }
+  
+  deleteNotification(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/deleteNotification`, data);
+  }
+
+  insertNotification(title, text, date, time, author, type, sendTo, startups, businessType) {
+    const data = {
+      title: title,
+      text: text,
+      date: date,
+      time: time,
+      author: author,
+      type: type,
+      sendTo: sendTo,
+      startups: startups,
+      businessType: businessType
+    }
+    return this.http.post(`${this.uri}/insertNotification`, data);
+  }
+
 }

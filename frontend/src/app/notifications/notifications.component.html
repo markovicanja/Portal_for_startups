@@ -1,0 +1,31 @@
+<h4 class="card-title mt-3 text-center">Notifications</h4>
+
+<div class="mt-3 text-center" *ngIf="loggedUser=='investor'">
+    <button class="btn btn-primary" (click)="sendNotification()"><i class="fas fa-share-square"></i> Send notification</button>
+</div>
+
+<div class="mx-auto mb-5" style="max-width: 800px">
+    <div *ngFor="let n of notifications">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ n.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ n.date }}, {{ n.time }}</h6>
+                <p class="card-text">{{ n.text }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Author: {{ n.author }}</h6> 
+                <button class="btn btn-info mx-2" (click)="archive(n)" 
+                *ngIf="loggedUser=='investor' && loggedUserFullName==n.author && n.archived==false">
+                    <i class="fas fa-archive"></i>
+                </button>                    
+                <button class="btn btn-danger mx-2" (click)="remove(n)"
+                *ngIf="loggedUser=='investor' && loggedUserFullName==n.author && n.deleted==false">
+                    <i class="fas fa-times"></i>
+                </button>     
+                <button class="btn btn-danger mx-2" (click)="delete(n)"
+                    *ngIf="loggedUser=='admin' && n.deleted == true">
+                        <i class="fas fa-trash-alt"></i>
+                </button>          
+            </div>
+        </div>
+    </div>
+</div>
+

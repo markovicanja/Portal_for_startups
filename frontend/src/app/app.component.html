@@ -39,6 +39,10 @@
             <a routerLink='/survey' class="nav-link">Surveys</a>
           </li>
 
+          <li class="nav-item" *ngIf="sessionValid">
+            <a routerLink='/notifications' class="nav-link">Notifications</a>
+          </li>
+
         </ul>
 
         <ul *ngIf="!sessionValid" class="nav navbar-nav ml-auto">

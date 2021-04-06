@@ -21,6 +21,7 @@ const startup_1 = __importDefault(require("./model/startup"));
 const investor_1 = __importDefault(require("./model/investor"));
 const news_1 = __importDefault(require("./model/news"));
 const survey_1 = __importDefault(require("./model/survey"));
+const notification_1 = __importDefault(require("./model/notification"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -298,6 +299,29 @@ router.route('/insertSurvey').post((req, res) => {
     let questions = req.body.questions;
     let isPublic = req.body.isPublic;
     survey_1.default.collection.insertOne({ 'name': name, 'author': author, 'questions': questions, 'public': isPublic, 'filled': [] });
+    res.json({ message: 1 });
+});
+router.route('/getAllNotifications').get((req, res) => {
+    notification_1.default.find({}, (err, notifications) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(notifications);
+    });
+});
+router.route('/archiveNotification').post((req, res) => {
+    let title = req.body.title;
+    notification_1.default.collection.updateOne({ 'title': title }, { $set: { 'archived': true } });
+    res.json({ message: 1 });
+});
+router.route('/removeNotification').post((req, res) => {
+    let title = req.body.title;
+    notification_1.default.collection.updateOne({ 'title': title }, { $set: { 'deleted': true } });
+    res.json({ message: 1 });
+});
+router.route('/deleteNotification').post((req, res) => {
+    let title = req.body.title;
+    notification_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
 /***** NODE MAILER *****/

@@ -21,6 +21,8 @@ import { SurveyComponent } from './survey/survey.component';
 import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { SendNotificationComponent } from './send-notification/send-notification.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
     SurveyComponent,
     SurveyStatisticsComponent,
     FillSurveyComponent,
-    CreateSurveyComponent
+    CreateSurveyComponent,
+    NotificationsComponent,
+    SendNotificationComponent
   ],
   imports: [
     BrowserModule,

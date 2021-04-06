@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit {
               if (!this.logged) {
                 this.msg = "Your password has expired!";
               }
-            }, 10000);
+            }, 10 * 60 * 1000);
           });
         });
       }

@@ -9,9 +9,11 @@ import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { SendNotificationComponent } from './send-notification/send-notification.component';
 import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
 import { SurveyComponent } from './survey/survey.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'surveyStatistics', component: SurveyStatisticsComponent },
   { path: 'fillSurvey', component: FillSurveyComponent },
   { path: 'createSurvey', component: CreateSurveyComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'sendNotification', component: SendNotificationComponent },
 ];
 
 @NgModule({

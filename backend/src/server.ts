@@ -7,6 +7,7 @@ import startup from './model/startup';
 import investor from './model/investor';
 import news from './model/news';
 import survey from './model/survey';
+import notification from './model/notification';
 
 const app = express();
 
@@ -314,6 +315,51 @@ router.route('/insertSurvey').post((req, res) => {
     survey.collection.insertOne({'name': name, 'author': author, 'questions': questions, 'public': isPublic, 'filled': []});
     res.json({message: 1});  
 });
+
+router.route('/getAllNotifications').get((req, res) => {
+    notification.find({}, (err, notifications) => {
+        if (err) console.log(err);
+        else res.json(notifications);
+    });
+});
+
+router.route('/archiveNotification').post((req, res) => {
+    let title = req.body.title;
+
+    notification.collection.updateOne({'title': title}, {$set: {'archived': true}});
+    res.json({message: 1});  
+});
+
+router.route('/removeNotification').post((req, res) => {
+    let title = req.body.title;
+
+    notification.collection.updateOne({'title': title}, {$set: {'deleted': true}});
+    res.json({message: 1});  
+});
+
+router.route('/deleteNotification').post((req, res) => {
+    let title = req.body.title;
+
+    notification.collection.deleteOne({'title': title});
+    res.json({message: 1});  
+});
+
+router.route('/insertNotification').post((req, res) => {
+    let title = req.body.title;    
+    let text = req.body.text;
+    let date = req.body.date;
+    let time = req.body.time;
+    let author = req.body.author;    
+    let type = req.body.type;
+    let sendTo = req.body.sendTo;
+    let startups = req.body.startups;    
+    let businessType = req.body.businessType;
+
+    notification.collection.insertOne({'title': title, 'text': text, 'date': date, 'time': time, 'author': author,
+    'type': type, 'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'archived': false, 'deleted': false});
+    res.json({message: 1});   
+});
+
 
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
