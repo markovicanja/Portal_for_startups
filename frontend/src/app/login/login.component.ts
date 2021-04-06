@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit {
   }
 
   resetPassword() {
+    this.msg = "";
     if (this.username == "") {
       this.msg = "Please fill in the username."
       return;
