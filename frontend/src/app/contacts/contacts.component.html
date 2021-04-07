@@ -1,11 +1,12 @@
 <h4 class="card-title mt-3 text-center">Contacts</h4>
 
+<h5 class="card-title mt-3 text-center">Startups</h5>
 <div class="mx-auto mb-5" style="max-width: 800px">
     <div *ngFor="let s of allStartups">
         <div class="card my-3">            
             <div class="card-body">
-                <img class='float-right' src="{{ ../../assets/images/ + s.logo }}" width="100" alt="Card image cap">
-                <h5 class="card-title pl-4">Startup: {{ s.fullName }}</h5>
+                <img class='float-right' src="{{ '../../assets/images/' + s.logo }}" style="height: 100px; width: 100px;">
+                <h5 class="card-title pl-4">{{ s.fullName }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Phone: {{ s.phoneNumber }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">Address: {{ s.address }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">City: {{ s.city }}, {{ s.country }}</h6>
@@ -16,12 +17,13 @@
     </div>
 </div>
 
+<h5 class="card-title mt-3 text-center">Investors</h5>
 <div class="mx-auto mb-5" style="max-width: 800px">
     <div *ngFor="let s of allInvestors">
         <div class="card my-3">            
             <div class="card-body">
-                <img class='float-right' src="{{ ../../assets/images/ + s.logo }}" width="100" alt="Card image cap">
-                <h5 class="card-title pl-4">Investor: {{ s.fullName }}</h5>
+                <img class='float-right' src="{{ '../../assets/images/' + s.logo }}" style="height: 100px; width: 100px;">
+                <h5 class="card-title pl-4">{{ s.fullName }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Phone: {{ s.phoneNumber }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">Address: {{ s.address }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">City: {{ s.city }}, {{ s.country }}</h6>
