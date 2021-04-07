@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { ContactComponent } from './contact/contact.component';
+import { ContactsComponent } from './contacts/contacts.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'createSurvey', component: CreateSurveyComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'sendNotification', component: SendNotificationComponent },
+  { path: 'contacts', component: ContactsComponent },
 ];
 
 @NgModule({

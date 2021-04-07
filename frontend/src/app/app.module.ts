@@ -23,6 +23,7 @@ import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SendNotificationComponent } from './send-notification/send-notification
     FillSurveyComponent,
     CreateSurveyComponent,
     NotificationsComponent,
-    SendNotificationComponent
+    SendNotificationComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
