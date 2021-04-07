@@ -22,11 +22,15 @@ export class ContactComponent implements OnInit {
 
   send() {
     this.msg = '';
-    alert("Email: " + this.email);
-    alert("Name: " + this.name);
-    alert("Subject: " + this.subject);
-    alert("Message: " + this.message);
-    this.msg = 'You have successfully sent a message!'
+    let mailInfo = {
+      from: this.email,
+      to: ['markovicanja98@gmail.com'],
+      subject: this.subject,
+      html: this.message + "<br><br> Sent from: " + this.name + ", email: " + this.email
+    }
+    this.service.sendMails(mailInfo).subscribe(() => {
+      this.msg = 'You have successfully sent a message!';
+    });    
   }
 
 }
