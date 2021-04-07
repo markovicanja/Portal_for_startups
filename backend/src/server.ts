@@ -432,5 +432,46 @@ async function resetPassword(user: { email: any; name: any; newPassword: any }, 
     callback(info);
 }
 
+app.post("/sendMails", (req, res) => {
+    let mailInfo = req.body.mailInfo;
+    let emails: String[] = mailInfo.to;
+
+    emails.forEach(e => {
+        let mail = {
+            from: mailInfo.from,
+            to: e,
+            subject: mailInfo.subject,
+            html: mailInfo.html
+        }
+
+        sendMails(mail, (info: { messageId: any; }) => {
+            console.log('********** Mail is sent **********');
+            res.send(info);
+        });
+    });    
+});
+
+async function sendMails(mailInfo: { from: any; to: any; subject: any; html: any }, callback: { (info: any): void; (arg0: any): void; }) {
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: details.email,
+        pass: details.password
+      }
+    });
+  
+    let mailOptions = {
+      from: mailInfo.from,
+      to: mailInfo.to,
+      subject: mailInfo.subject,
+      html: mailInfo.html
+    };
+  
+    let info = await transporter.sendMail(mailOptions);  
+    callback(info);
+}
+
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));

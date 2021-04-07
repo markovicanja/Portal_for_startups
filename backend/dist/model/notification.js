@@ -38,6 +38,10 @@ const Notification = new Schema({
         type: Array,
         required: true
     },
+    businessType: {
+        type: String,
+        required: true
+    },
     archived: {
         type: Boolean,
         required: true

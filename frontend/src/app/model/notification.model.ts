@@ -1,3 +1,5 @@
+import { Startup } from "./startup.model";
+
 export class Notification {
     title: string;
     text: string;
@@ -6,7 +8,7 @@ export class Notification {
     author: string;
     type: string;
     sendTo: string;
-    startups: Array<string>;
+    startups: Array<Startup>;
     businessType: string;
     archived: boolean;
     deleted: boolean;

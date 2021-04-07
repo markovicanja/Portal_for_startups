@@ -324,6 +324,20 @@ router.route('/deleteNotification').post((req, res) => {
     notification_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
+router.route('/insertNotification').post((req, res) => {
+    let title = req.body.title;
+    let text = req.body.text;
+    let date = req.body.date;
+    let time = req.body.time;
+    let author = req.body.author;
+    let type = req.body.type;
+    let sendTo = req.body.sendTo;
+    let startups = req.body.startups;
+    let businessType = req.body.businessType;
+    notification_1.default.collection.insertOne({ 'title': title, 'text': text, 'date': date, 'time': time, 'author': author,
+        'type': type, 'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'archived': false, 'deleted': false });
+    res.json({ message: 1 });
+});
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");
@@ -383,6 +397,43 @@ function resetPassword(user, callback) {
       password is:</p> 
       <h3>${user.newPassword}</h3>
       <p>It will expire in 10 minutes.</p>`
+        };
+        let info = yield transporter.sendMail(mailOptions);
+        callback(info);
+    });
+}
+app.post("/sendMails", (req, res) => {
+    let mailInfo = req.body.mailInfo;
+    let emails = mailInfo.to;
+    emails.forEach(e => {
+        let mail = {
+            from: mailInfo.from,
+            to: e,
+            subject: mailInfo.subject,
+            html: mailInfo.html
+        };
+        sendMails(mail, (info) => {
+            console.log('********** Mail is sent **********');
+            res.send(info);
+        });
+    });
+});
+function sendMails(mailInfo, callback) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: details.email,
+                pass: details.password
+            }
+        });
+        let mailOptions = {
+            from: mailInfo.from,
+            to: mailInfo.to,
+            subject: mailInfo.subject,
+            html: mailInfo.html
         };
         let info = yield transporter.sendMail(mailOptions);
         callback(info);

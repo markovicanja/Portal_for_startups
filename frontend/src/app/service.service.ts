@@ -319,4 +319,11 @@ export class ServiceService {
     return this.http.post(`${this.uri}/insertNotification`, data);
   }
 
+  sendMails(mailInfo) {
+    const data = {
+      mailInfo: mailInfo
+    }
+    return this.http.post(`${this.uri}/sendMails`, data);
+  }
+
 }

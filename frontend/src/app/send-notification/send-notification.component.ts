@@ -19,7 +19,7 @@ export class SendNotificationComponent implements OnInit {
     this.notification = new Notification();
     this.notification.type = '';
     this.notification.sendTo = '';
-    this.businessType = '';
+    this.notification.businessType = '';
     this.selectedStartups = [];
     this.getAllStartups();
   }
@@ -27,8 +27,8 @@ export class SendNotificationComponent implements OnInit {
   investor: Investor;
   notification: Notification;
   allStartups: Startup[];
-  selectedStartups: string[];
-  businessType: string;
+  selectedStartups: Startup[];
+  emails: string[];
 
   getAllStartups() {
     this.service.getAllStartups().subscribe((s: Startup[]) => {
@@ -41,11 +41,63 @@ export class SendNotificationComponent implements OnInit {
     let time = "" + date.getHours() + ":" + date.getMinutes();
     let dateString = (date.getMonth() + 1) + "/" + (date.getDate()) + "/" + (date.getFullYear());
 
-    this.service.insertNotification(this.notification.title, this.notification.text, 
-      dateString, time, this.investor.fullName, this.notification.type, this.notification.sendTo, 
-      this.selectedStartups, this.businessType).subscribe(() => {
-        this.router.navigate(['notifications']);
-      });
+    if (this.notification.type == 'profile') {
+      this.service.insertNotification(this.notification.title, this.notification.text, 
+        dateString, time, this.investor.fullName, this.notification.type, this.notification.sendTo, 
+        this.selectedStartups, this.notification.businessType).subscribe(() => {
+          this.router.navigate(['notifications']);
+        });
+    }
+    else {
+      this.emails = [];
+      if (this.notification.sendTo == 'all startups') {
+        this.service.getAllStartups().subscribe((startups: Startup[]) => {
+          startups.forEach(s => {
+            this.emails.push(s.email);
+          }); 
+          this.sendEmails();
+        });
+      }
+      else if (this.notification.sendTo == 'selected business type startups') {
+        this.service.getAllStartups().subscribe((startups: Startup[]) => {
+          startups.forEach(s => {
+            if (s.businessType == this.notification.businessType) this.emails.push(s.email);
+          }); 
+          this.sendEmails();
+        });
+      }
+      else if (this.notification.sendTo == 'selected startups') {
+        this.selectedStartups.forEach(s => {
+          this.emails.push(s.email);
+        });
+        this.sendEmails();        
+      }
+      else if (this.notification.sendTo == 'everyone') {
+        this.service.getAllStartups().subscribe((startups: Startup[]) => {
+          startups.forEach(s => {
+            this.emails.push(s.email);
+          }); 
+          this.service.getAllInvestors().subscribe((investors: Investor[]) => {
+            investors.forEach(i => {
+              if (i.username != this.investor.username) this.emails.push(i.email);
+            });
+            this.sendEmails();
+          });
+        });
+      }
+    }
+  }
+
+  sendEmails() {
+    let mailInfo = {
+      from: this.investor.email,
+      to: this.emails,
+      subject: this.notification.title,
+      html: this.notification.text 
+    }
+    this.service.sendMails(mailInfo).subscribe(() => {
+      this.router.navigate(['notifications'])
+    });
   }
 
 }
