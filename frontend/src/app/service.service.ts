@@ -344,4 +344,20 @@ export class ServiceService {
     return this.http.post(`${this.uri}/deleteAd`, data);
   }
 
+  insertAd(title, text, publishDate, publishTime, expireDate, expireTime, author, sendTo, startups, businessType) {
+    const data = {
+      title: title,
+      text: text,
+      publishDate: publishDate,
+      publishTime: publishTime,
+      expireDate: expireDate,
+      expireTime: expireTime,
+      author: author,
+      sendTo: sendTo,
+      startups: startups,
+      businessType: businessType
+    }
+    return this.http.post(`${this.uri}/insertAd`, data);
+  }
+
 }

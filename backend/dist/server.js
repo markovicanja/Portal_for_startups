@@ -357,6 +357,22 @@ router.route('/deleteAd').post((req, res) => {
     ad_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
+router.route('/insertAd').post((req, res) => {
+    let title = req.body.title;
+    let text = req.body.text;
+    let publishDate = req.body.publishDate;
+    let publishTime = req.body.publishTime;
+    let expireDate = req.body.expireDate;
+    let expireTime = req.body.expireTime;
+    let author = req.body.author;
+    let sendTo = req.body.sendTo;
+    let startups = req.body.startups;
+    let businessType = req.body.businessType;
+    ad_1.default.collection.insertOne({ 'title': title, 'text': text, 'publishDate': publishDate, 'publishTime': publishTime,
+        'expireDate': expireDate, 'expireTime': expireTime, 'author': author,
+        'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'deleted': false });
+    res.json({ message: 1 });
+});
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");
