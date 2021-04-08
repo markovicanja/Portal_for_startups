@@ -58,6 +58,11 @@ export class NotificationsComponent implements OnInit {
             this.notifications.push(n);
         });
       }
+      else {
+        notifications.forEach(n => {
+          if (!n.archived && !n.deleted && n.sendTo == 'everyone') this.notifications.push(n);
+        });
+      }
     });
   }
 

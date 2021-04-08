@@ -24,6 +24,8 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AdsComponent } from './ads/ads.component';
+import { AdsCreateComponent } from './ads-create/ads-create.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ContactsComponent } from './contacts/contacts.component';
     CreateSurveyComponent,
     NotificationsComponent,
     SendNotificationComponent,
-    ContactsComponent
+    ContactsComponent,
+    AdsComponent,
+    AdsCreateComponent
   ],
   imports: [
     BrowserModule,

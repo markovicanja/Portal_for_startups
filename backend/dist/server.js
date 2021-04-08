@@ -22,6 +22,7 @@ const investor_1 = __importDefault(require("./model/investor"));
 const news_1 = __importDefault(require("./model/news"));
 const survey_1 = __importDefault(require("./model/survey"));
 const notification_1 = __importDefault(require("./model/notification"));
+const ad_1 = __importDefault(require("./model/ad"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -336,6 +337,24 @@ router.route('/insertNotification').post((req, res) => {
     let businessType = req.body.businessType;
     notification_1.default.collection.insertOne({ 'title': title, 'text': text, 'date': date, 'time': time, 'author': author,
         'type': type, 'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'archived': false, 'deleted': false });
+    res.json({ message: 1 });
+});
+router.route('/getAllAds').get((req, res) => {
+    ad_1.default.find({}, (err, ads) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(ads);
+    });
+});
+router.route('/removeAd').post((req, res) => {
+    let title = req.body.title;
+    ad_1.default.collection.updateOne({ 'title': title }, { $set: { 'deleted': true } });
+    res.json({ message: 1 });
+});
+router.route('/deleteAd').post((req, res) => {
+    let title = req.body.title;
+    ad_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
 /***** NODE MAILER *****/

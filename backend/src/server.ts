@@ -8,6 +8,7 @@ import investor from './model/investor';
 import news from './model/news';
 import survey from './model/survey';
 import notification from './model/notification';
+import ad from './model/ad';
 
 const app = express();
 
@@ -360,6 +361,26 @@ router.route('/insertNotification').post((req, res) => {
     res.json({message: 1});   
 });
 
+router.route('/getAllAds').get((req, res) => {
+    ad.find({}, (err, ads) => {
+        if (err) console.log(err);
+        else res.json(ads);
+    });
+});
+
+router.route('/removeAd').post((req, res) => {
+    let title = req.body.title;
+
+    ad.collection.updateOne({'title': title}, {$set: {'deleted': true}});
+    res.json({message: 1});  
+});
+
+router.route('/deleteAd').post((req, res) => {
+    let title = req.body.title;
+
+    ad.collection.deleteOne({'title': title});
+    res.json({message: 1});  
+});
 
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');

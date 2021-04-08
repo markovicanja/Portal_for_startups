@@ -1,0 +1,27 @@
+<h4 class="card-title mt-3 text-center">Ads</h4>
+
+<div class="mt-3 text-center" *ngIf="loggedUser=='investor'">
+    <button class="btn btn-primary" (click)="createAd()"><i class="fas fa-share-square"></i> Post ad</button>
+</div>
+
+<div class="mx-auto mb-5" style="max-width: 800px">
+    <div *ngFor="let a of ads">
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ a.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ a.publishDate }}, {{ a.publishTime }}</h6>
+                <p class="card-text">{{ a.text }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Author: {{ a.author }}</h6> 
+                <button class="btn btn-danger mx-2" (click)="remove(a)"
+                *ngIf="loggedUser=='investor' && loggedUserFullName==a.author && a.deleted==false">
+                    <i class="fas fa-times"></i>
+                </button>     
+                <button class="btn btn-danger mx-2" (click)="delete(a)"
+                    *ngIf="loggedUser=='admin' && a.deleted == true">
+                        <i class="fas fa-trash-alt"></i>
+                </button>          
+            </div>
+        </div>
+    </div>
+</div>
+

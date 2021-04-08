@@ -326,4 +326,22 @@ export class ServiceService {
     return this.http.post(`${this.uri}/sendMails`, data);
   }
 
+  getAllAds() {
+    return this.http.get(`${this.uri}/getAllAds`);
+  }
+
+  removeAd(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/removeAd`, data);
+  }
+  
+  deleteAd(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/deleteAd`, data);
+  }
+
 }
