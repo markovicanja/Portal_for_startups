@@ -360,4 +360,15 @@ export class ServiceService {
     return this.http.post(`${this.uri}/insertAd`, data);
   }
 
+  getAllRecommendations() {
+    return this.http.get(`${this.uri}/getAllRecommendations`);
+  }
+
+  deleteRecommendation(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/deleteRecommendation`, data);
+  }
+
 }

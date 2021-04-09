@@ -15,6 +15,7 @@ import { NewsComponent } from './news/news.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { RegisterComponent } from './register/register.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
 import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'ads', component: AdsComponent },
   { path: 'createAds', component: AdsCreateComponent },
+  { path: 'recommendations', component: RecommendationsComponent },
 ];
 
 @NgModule({

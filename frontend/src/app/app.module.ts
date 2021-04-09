@@ -26,6 +26,7 @@ import { SendNotificationComponent } from './send-notification/send-notification
 import { ContactsComponent } from './contacts/contacts.component';
 import { AdsComponent } from './ads/ads.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AdsCreateComponent } from './ads-create/ads-create.component';
     SendNotificationComponent,
     ContactsComponent,
     AdsComponent,
-    AdsCreateComponent
+    AdsCreateComponent,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,7 @@ const news_1 = __importDefault(require("./model/news"));
 const survey_1 = __importDefault(require("./model/survey"));
 const notification_1 = __importDefault(require("./model/notification"));
 const ad_1 = __importDefault(require("./model/ad"));
+const recommendation_1 = __importDefault(require("./model/recommendation"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -371,6 +372,19 @@ router.route('/insertAd').post((req, res) => {
     ad_1.default.collection.insertOne({ 'title': title, 'text': text, 'publishDate': publishDate, 'publishTime': publishTime,
         'expireDate': expireDate, 'expireTime': expireTime, 'author': author,
         'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'deleted': false });
+    res.json({ message: 1 });
+});
+router.route('/getAllRecommendations').get((req, res) => {
+    recommendation_1.default.find({}, (err, recommendations) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(recommendations);
+    });
+});
+router.route('/deleteRecommendation').post((req, res) => {
+    let title = req.body.title;
+    recommendation_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
 /***** NODE MAILER *****/

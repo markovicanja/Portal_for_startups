@@ -9,6 +9,7 @@ import news from './model/news';
 import survey from './model/survey';
 import notification from './model/notification';
 import ad from './model/ad';
+import recommendation from './model/recommendation';
 
 const app = express();
 
@@ -398,6 +399,20 @@ router.route('/insertAd').post((req, res) => {
     'expireDate': expireDate, 'expireTime': expireTime, 'author': author,
     'sendTo': sendTo, 'startups': startups, 'businessType': businessType, 'deleted': false});
     res.json({message: 1});   
+});
+
+router.route('/getAllRecommendations').get((req, res) => {
+    recommendation.find({}, (err, recommendations) => {
+        if (err) console.log(err);
+        else res.json(recommendations);
+    });
+});
+
+router.route('/deleteRecommendation').post((req, res) => {
+    let title = req.body.title;
+
+    recommendation.collection.deleteOne({'title': title});
+    res.json({message: 1});  
 });
 
 /***** NODE MAILER *****/
