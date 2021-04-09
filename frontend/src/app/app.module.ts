@@ -27,6 +27,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AdsComponent } from './ads/ads.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
+import { CodebookComponent } from './codebook/codebook.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
     ContactsComponent,
     AdsComponent,
     AdsCreateComponent,
-    RecommendationsComponent
+    RecommendationsComponent,
+    CodebookComponent
   ],
   imports: [
     BrowserModule,

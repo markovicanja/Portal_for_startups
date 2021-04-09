@@ -33,14 +33,14 @@
             </select>
         </div>
 
-        <div class="form-group" *ngIf="notification.sendTo=='selected startups'">
+        <div class="form-group" *ngIf="ad.sendTo=='selected startups'">
             <label for="startups">Select startups</label>
             <select multiple class="form-control" id="startups" [(ngModel)]="selectedStartups" name="selectedStartups">
               <option *ngFor="let s of allStartups" [value]='s'>{{ s.fullName }}</option>
             </select>
         </div>
 
-        <div class="form-group input-group" *ngIf="notification.sendTo=='selected business type startups'">
+        <div class="form-group input-group" *ngIf="ad.sendTo=='selected business type startups'">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
             </div>
