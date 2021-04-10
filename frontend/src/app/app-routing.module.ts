@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
 import { AdsComponent } from './ads/ads.component';
+import { CodebookComponent } from './codebook/codebook.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'ads', component: AdsComponent },
   { path: 'createAds', component: AdsCreateComponent },
   { path: 'recommendations', component: RecommendationsComponent },
+  { path: 'codebooks', component: CodebookComponent },
 ];
 
 @NgModule({

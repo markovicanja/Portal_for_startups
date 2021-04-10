@@ -370,5 +370,17 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/deleteRecommendation`, data);
   }
+  
+  getAllCodebooks() {
+    return this.http.get(`${this.uri}/getAllCodebooks`);
+  }
+
+  deleteCodebook(codebookData, category) {
+    const data = {
+      data: codebookData,
+      category: category
+    }
+    return this.http.post(`${this.uri}/deleteCodebook`, data);
+  }
 
 }

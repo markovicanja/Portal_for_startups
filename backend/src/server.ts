@@ -10,6 +10,7 @@ import survey from './model/survey';
 import notification from './model/notification';
 import ad from './model/ad';
 import recommendation from './model/recommendation';
+import codebook from './model/codebook';
 
 const app = express();
 
@@ -412,6 +413,21 @@ router.route('/deleteRecommendation').post((req, res) => {
     let title = req.body.title;
 
     recommendation.collection.deleteOne({'title': title});
+    res.json({message: 1});  
+});
+
+router.route('/getAllCodebooks').get((req, res) => {
+    codebook.find({}, (err, codebooks) => {
+        if (err) console.log(err);
+        else res.json(codebooks);
+    });
+});
+
+router.route('/deleteCodebook').post((req, res) => {
+    let data = req.body.data;
+    let category = req.body.category;
+
+    codebook.collection.deleteOne({'data': data, 'category': category});
     res.json({message: 1});  
 });
 

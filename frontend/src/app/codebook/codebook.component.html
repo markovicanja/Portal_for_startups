@@ -1,1 +1,41 @@
-<p>codebook works!</p>
+<h3 class="card-title mt-3 text-center">Codebooks</h3>
+
+<div class="mb-3 text-center" *ngFor="let codebook of codebooks">
+
+    <h4 class="card-title mt-3">{{ codebook[0].category }}</h4>
+
+    <div class="mx-auto d-flex justify-content-center" style="max-width: 800px;">        
+        <table class="table table-white text-center">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Date from</th>
+                    <th>Date to</th>
+                    <th colspan="2">
+                        <button (click)="addValue()" type="button" class="btn btn-success mx-2">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of codebook">
+                    <td>{{ c.data }}</td>
+                    <td>{{ c.dateFrom }}</td>
+                    <td>{{ c.dateTo }}</td>
+                    <td>
+                        <button (click)="edit(c)" type="button" class="btn btn-primary mx-2">
+                            <i class="fas fa-edit"></i>
+                        </button>      
+                    </td>
+                    <td>
+                        <button (click)="delete(c)" type="button" class="btn btn-danger mx-2">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>      
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> 

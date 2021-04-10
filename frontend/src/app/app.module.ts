@@ -28,6 +28,8 @@ import { AdsComponent } from './ads/ads.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { CodebookComponent } from './codebook/codebook.component';
+import { AddCodebookComponent } from './add-codebook/add-codebook.component';
+import { EditCodebookComponent } from './edit-codebook/edit-codebook.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { CodebookComponent } from './codebook/codebook.component';
     AdsComponent,
     AdsCreateComponent,
     RecommendationsComponent,
-    CodebookComponent
+    CodebookComponent,
+    AddCodebookComponent,
+    EditCodebookComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,7 @@ const survey_1 = __importDefault(require("./model/survey"));
 const notification_1 = __importDefault(require("./model/notification"));
 const ad_1 = __importDefault(require("./model/ad"));
 const recommendation_1 = __importDefault(require("./model/recommendation"));
+const codebook_1 = __importDefault(require("./model/codebook"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -386,6 +387,14 @@ router.route('/deleteRecommendation').post((req, res) => {
     let title = req.body.title;
     recommendation_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
+});
+router.route('/getAllCodebooks').get((req, res) => {
+    codebook_1.default.find({}, (err, codebooks) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(codebooks);
+    });
 });
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
