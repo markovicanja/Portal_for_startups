@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCodebookComponent } from './add-codebook/add-codebook.component';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
 import { AdsComponent } from './ads/ads.component';
@@ -8,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
+import { EditCodebookComponent } from './edit-codebook/edit-codebook.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { HomeComponent } from './home/home.component';
@@ -47,6 +49,8 @@ const routes: Routes = [
   { path: 'createAds', component: AdsCreateComponent },
   { path: 'recommendations', component: RecommendationsComponent },
   { path: 'codebooks', component: CodebookComponent },
+  { path: 'addCodebook', component: AddCodebookComponent },
+  { path: 'editCodebook', component: EditCodebookComponent },
 ];
 
 @NgModule({

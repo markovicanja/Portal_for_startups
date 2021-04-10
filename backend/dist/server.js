@@ -396,6 +396,20 @@ router.route('/getAllCodebooks').get((req, res) => {
             res.json(codebooks);
     });
 });
+router.route('/deleteCodebook').post((req, res) => {
+    let data = req.body.data;
+    let category = req.body.category;
+    codebook_1.default.collection.deleteOne({ 'data': data, 'category': category });
+    res.json({ message: 1 });
+});
+router.route('/insertCodebook').post((req, res) => {
+    let data = req.body.data;
+    let category = req.body.category;
+    let dateFrom = req.body.dateFrom;
+    let dateTo = req.body.dateTo;
+    codebook_1.default.collection.insertOne({ 'data': data, 'category': category, 'dateFrom': dateFrom, 'dateTo': dateTo });
+    res.json({ message: 1 });
+});
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");

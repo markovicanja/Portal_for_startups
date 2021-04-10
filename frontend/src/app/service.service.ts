@@ -383,4 +383,14 @@ export class ServiceService {
     return this.http.post(`${this.uri}/deleteCodebook`, data);
   }
 
+  insertCodebook(dataCodebook, category, dateFrom, dateTo) {
+    const data = {
+      data: dataCodebook,
+      category: category,
+      dateFrom: dateFrom,
+      dateTo: dateTo
+    }
+    return this.http.post(`${this.uri}/insertCodebook`, data);
+  }
+
 }

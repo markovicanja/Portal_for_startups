@@ -36,12 +36,14 @@ export class CodebookComponent implements OnInit {
     });
   }
 
-  addValue() {
-
+  addValue(category: string) {
+    localStorage.setItem("addCodebookCategory", category);
+    this.router.navigate(['addCodebook']);
   }
 
   edit(codebook: Codebook) {
-
+    localStorage.setItem("editCodebook", JSON.stringify(codebook));
+    this.router.navigate(['editCodebook']);
   }
 
   delete(codebook: Codebook) {

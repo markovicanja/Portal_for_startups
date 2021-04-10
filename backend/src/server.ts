@@ -431,6 +431,16 @@ router.route('/deleteCodebook').post((req, res) => {
     res.json({message: 1});  
 });
 
+router.route('/insertCodebook').post((req, res) => {
+    let data = req.body.data;    
+    let category = req.body.category;
+    let dateFrom = req.body.dateFrom;
+    let dateTo = req.body.dateTo;
+
+    codebook.collection.insertOne({'data': data, 'category': category, 'dateFrom': dateFrom, 'dateTo': dateTo});
+    res.json({message: 1});   
+});
+
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");
