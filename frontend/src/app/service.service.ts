@@ -393,4 +393,15 @@ export class ServiceService {
     return this.http.post(`${this.uri}/insertCodebook`, data);
   }
 
+  updateCodebook(oldData, dataCodebook, category, dateFrom, dateTo) {
+    const data = {
+      oldData: oldData,
+      data: dataCodebook,
+      category: category,
+      dateFrom: dateFrom,
+      dateTo: dateTo
+    }
+    return this.http.post(`${this.uri}/updateCodebook`, data);
+  }
+
 }

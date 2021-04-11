@@ -410,6 +410,15 @@ router.route('/insertCodebook').post((req, res) => {
     codebook_1.default.collection.insertOne({ 'data': data, 'category': category, 'dateFrom': dateFrom, 'dateTo': dateTo });
     res.json({ message: 1 });
 });
+router.route('/updateCodebook').post((req, res) => {
+    let oldData = req.body.oldData;
+    let data = req.body.data;
+    let category = req.body.category;
+    let dateFrom = req.body.dateFrom;
+    let dateTo = req.body.dateTo;
+    codebook_1.default.collection.updateOne({ 'data': oldData, 'category': category }, { $set: { 'data': data, 'dateFrom': dateFrom, 'dateTo': dateTo } });
+    res.json({ message: 1 });
+});
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");
