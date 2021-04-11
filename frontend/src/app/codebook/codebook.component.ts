@@ -13,6 +13,7 @@ export class CodebookComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.deleteExpiredCodebooks();
     this.getAllCodebooks();
   }
 
@@ -26,7 +27,9 @@ export class CodebookComponent implements OnInit {
       while (true) { 
         let categoryArray = [];
         c.forEach(codebook => {
-          if (codebook.category == category) categoryArray.push(codebook);
+          let today = (new Date()).getTime();
+          let dateTo = (new Date(codebook.dateTo)).getTime();
+          if (codebook.category == category && today < dateTo) categoryArray.push(codebook);
         });
         c = c.filter(obj => obj.category !== category);
         this.codebooks.push(categoryArray);
@@ -50,5 +53,17 @@ export class CodebookComponent implements OnInit {
     this.service.deleteCodebook(codebook.data, codebook.category).subscribe(() => {
       this.getAllCodebooks();
     });
+  }
+
+  deleteExpiredCodebooks() {    
+    this.service.getAllCodebooks().subscribe((c: Codebook[]) => {
+      c.forEach(codebook => {
+        let today = (new Date()).getTime();
+        let dateTo = (new Date(codebook.dateTo)).getTime();        
+        if (today > dateTo) {
+          this.service.deleteCodebook(codebook.data, codebook.category).subscribe(() => {});
+        }
+      });
+    });     
   }
 }
