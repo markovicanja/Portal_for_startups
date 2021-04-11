@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Codebook } from '../model/codebook.model';
 import { Investor } from '../model/investor.model';
 import { News } from '../model/news.model';
 import { Startup } from '../model/startup.model';
@@ -17,6 +18,7 @@ export class CreateNewsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllStartups();
     this.getAllInvestors();
+    this.getCodebookCategories();
     this.createdNews = new News();
     this.createdNews.visibility = '';
     this.selectedStartups = [];
@@ -37,6 +39,7 @@ export class CreateNewsComponent implements OnInit {
   allInvestors: Investor[];
   selectedInvestors: Investor[];
   loggedUserName: string;
+  codebooks: Codebook[];
 
   getAllStartups() {
     this.service.getAllStartups().subscribe((startups: Startup[]) => {
@@ -58,8 +61,30 @@ export class CreateNewsComponent implements OnInit {
 
     this.service.insertNews(this.createdNews.name, this.createdNews.text, this.createdNews.category, 
       dateString, time, this.loggedUserName, this.createdNews.visibility, this.selectedStartups, this.selectedInvestors).subscribe(() => {
+        let found = false;
+        this.codebooks.forEach(codebook => {
+          if (codebook.data == this.createdNews.category) found = true;
+        });
+        if (!found) {
+          let month = ("00" + (date.getMonth() + 1)).slice(-2);
+          let day = ("00" + date.getDate()).slice(-2);
+          let dateFrom = (date.getFullYear()) + "-" + month + "-" + day;
+          let dateTo = (date.getFullYear() + 2) + "-" + month + "-" + day;
+          this.service.insertCodebook(this.createdNews.category, "Area of interest", dateFrom, dateTo).subscribe(() => {
+            this.router.navigate(['news']);
+          });
+        }
         this.router.navigate(['news']);
       });
+  }
+
+  getCodebookCategories() {
+    this.codebooks = [];
+    this.service.getAllCodebooks().subscribe((codebooks: Codebook[]) => {
+      codebooks.forEach(codebook => {
+        if (codebook.category == "Area of interest") this.codebooks.push(codebook);
+      })
+    }); 
   }
 
 }

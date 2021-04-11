@@ -396,6 +396,15 @@ router.route('/getAllCodebooks').get((req, res) => {
             res.json(codebooks);
     });
 });
+router.route('/getCategoryCodebooks').get((req, res) => {
+    let category = req.body.category;
+    codebook_1.default.find({ 'category': category }, (err, codebooks) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(codebooks);
+    });
+});
 router.route('/deleteCodebook').post((req, res) => {
     let data = req.body.data;
     let category = req.body.category;
