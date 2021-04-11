@@ -50,7 +50,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
                         </div>
-                        <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullName">
+                        <input list="id-company" name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullName">
+                        <datalist id="id-company">
+                            <option *ngFor="let codebook of codebookCompany">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
 
                     <div class="form-group input-group">
@@ -87,7 +90,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
                         </div>
-                        <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="address">
+                        <input list="id-address" name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="address">
+                        <datalist id="id-address">
+                            <option *ngFor="let codebook of codebookAddress">{{ codebook.data }}</option>
+                        </datalist>
                         <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="municipality">
                     </div>
 
@@ -95,8 +101,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
                         </div>
-                        <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="city">
-                        <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="country">
+                        <input list="id-city" name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="city">
+                        <datalist id="id-city">
+                            <option *ngFor="let codebook of codebookCity">{{ codebook.data }}</option>
+                        </datalist>
+                        <input list="id-country" name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="country">
+                        <datalist id="id-country">
+                            <option *ngFor="let codebook of codebookCountry">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
                     
                     <div class="form-group input-group">
@@ -131,7 +143,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
                         </div>
-                        <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessType">
+                        <input list="id-businessType" name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessType">
+                        <datalist id="id-businessType">
+                            <option *ngFor="let codebook of codebookBusinessType">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
 
                     <div class="form-group input-group">
@@ -250,7 +265,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
                         </div>
-                        <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullNameInv">
+                        <input list="id-companyInvestor" name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="fullNameInv">
+                        <datalist id="id-companyInvestor">
+                            <option *ngFor="let codebook of codebookCompany">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
 
                     <div class="form-group input-group">
@@ -287,7 +305,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
                         </div>
-                        <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="addressInv">
+                        <input list="id-addressInvestor" name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="addressInv">
+                        <datalist id="id-addressInvestor">
+                            <option *ngFor="let codebook of codebookAddress">{{ codebook.data }}</option>
+                        </datalist>
                         <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="municipalityInv">
                     </div>
 
@@ -295,8 +316,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
                         </div>
-                        <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="cityInv">
-                        <input name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="countryInv">
+                        <input list="id-cityInvestor" name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="cityInv">
+                        <datalist id="id-cityInvestor">
+                            <option *ngFor="let codebook of codebookCity">{{ codebook.data }}</option>
+                        </datalist>
+                        <input list="id-countryInvestor" name="country" class="form-control" placeholder="Country" type="text" [(ngModel)]="countryInv">
+                        <datalist id="id-countryInvestor">
+                            <option *ngFor="let codebook of codebookCountry">{{ codebook.data }}</option>
+                        </datalist>     
                     </div>
                     
                     <div class="form-group input-group">
@@ -331,7 +358,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
                         </div>
-                        <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessTypeInv">
+                        <input list="id-businessTypeInvestor" name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="businessTypeInv">
+                        <datalist id="id-businessTypeInvestor">
+                            <option *ngFor="let codebook of codebookBusinessType">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
 
                     <div class="form-group input-group">
@@ -375,7 +405,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-tasks"></i> </span>
                         </div>
-                        <input name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="servicesType">
+                        <input list="id-services" name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="servicesType">
+                        <datalist id="id-services">
+                            <option *ngFor="let codebook of codebookServices">{{ codebook.data }}</option>
+                        </datalist>
                     </div>
 
                     <div class="form-group input-group">
