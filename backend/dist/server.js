@@ -396,15 +396,6 @@ router.route('/getAllCodebooks').get((req, res) => {
             res.json(codebooks);
     });
 });
-router.route('/getCategoryCodebooks').get((req, res) => {
-    let category = req.body.category;
-    codebook_1.default.find({ 'category': category }, (err, codebooks) => {
-        if (err)
-            console.log(err);
-        else
-            res.json(codebooks);
-    });
-});
 router.route('/deleteCodebook').post((req, res) => {
     let data = req.body.data;
     let category = req.body.category;
@@ -433,6 +424,7 @@ var nodemailer = require('nodemailer');
 const details = require("../details.json");
 app.post("/sendmail", (req, res) => {
     let user = req.body.user;
+    console.log(user.name + ": " + user.email);
     sendMail(user, (info) => {
         console.log('********** Mail is sent **********');
         res.send(info);

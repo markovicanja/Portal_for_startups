@@ -459,6 +459,7 @@ const details = require("../details.json");
 app.post("/sendmail", (req, res) => {
     let user = req.body.user;
 
+    console.log(user.name + ": " + user.email);
     sendMail(user, (info: { messageId: any; }) => {
         console.log('********** Mail is sent **********');
         res.send(info);
