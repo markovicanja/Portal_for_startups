@@ -70,7 +70,7 @@ export class CreateNewsComponent implements OnInit {
           let day = ("00" + date.getDate()).slice(-2);
           let dateFrom = (date.getFullYear()) + "-" + month + "-" + day;
           let dateTo = (date.getFullYear() + 2) + "-" + month + "-" + day;
-          this.service.insertCodebook(this.createdNews.category, "Area of interest", dateFrom, dateTo).subscribe(() => {
+          this.service.insertCodebook(this.createdNews.category, "News category", dateFrom, dateTo).subscribe(() => {
             this.router.navigate(['news']);
           });
         }
@@ -82,7 +82,7 @@ export class CreateNewsComponent implements OnInit {
     this.codebooks = [];
     this.service.getAllCodebooks().subscribe((codebooks: Codebook[]) => {
       codebooks.forEach(codebook => {
-        if (codebook.category == "Area of interest") this.codebooks.push(codebook);
+        if (codebook.category == "News category") this.codebooks.push(codebook);
       })
     }); 
   }
