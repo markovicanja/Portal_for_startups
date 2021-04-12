@@ -11,6 +11,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">Published: {{ n.date }}, {{ n.time }}</h6>
                     <p class="card-text">{{ n.text }}</p>
                     <p class="card-subtitle mb-2 text-muted">Author: {{ n.author }}</p>
+                    <small class="card-subtitle mb-2 text-muted"><i>Category: {{ n.category }}</i></small>
                     <button class="btn btn-info mx-2" (click)="archive(n)" 
                     *ngIf="(loggedUser=='investor' || loggedUser=='startup') && loggedUserFullName==n.author && n.visibility!='Archived'">
                         <i class="fas fa-archive"></i>
