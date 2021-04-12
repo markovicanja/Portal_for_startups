@@ -106,7 +106,6 @@ export class RegisterComponent implements OnInit {
   codebookCountry: Codebook[];
   codebookBusinessType: Codebook[];  
   codebookCompany: Codebook[];  
-  codebookServices: Codebook[];
 
   registerStartup() {
     this.msgStartup = "";
@@ -204,7 +203,6 @@ export class RegisterComponent implements OnInit {
     this.codebookCountry = [];
     this.codebookBusinessType = [];
     this.codebookCompany = [];
-    this.codebookServices = [];
     this.service.getAllCodebooks().subscribe((codebooks: Codebook[]) => {
       codebooks.forEach(codebook => {
         if (codebook.category == "Address") this.codebookAddress.push(codebook);
@@ -212,7 +210,6 @@ export class RegisterComponent implements OnInit {
         else if (codebook.category == "Country") this.codebookCountry.push(codebook);
         else if (codebook.category == "Business type") this.codebookBusinessType.push(codebook);
         else if (codebook.category == "Company") this.codebookCompany.push(codebook);
-        else if (codebook.category == "Services") this.codebookServices.push(codebook);
       })
     }); 
   }
@@ -288,17 +285,7 @@ export class RegisterComponent implements OnInit {
       else if (user == 'investor') {
         this.service.insertCodebook(this.fullNameInv, "Company", dateFrom, dateTo).subscribe(() => {});
       }
-    }
-    if (user == 'investor') {
-      found = false;
-      this.codebookServices.forEach(codebook => {
-        if (codebook.data == this.servicesType) found = true;
-      });
-      if (!found) {
-        this.service.insertCodebook(this.servicesType, "Services", dateFrom, dateTo).subscribe(() => {});
-      }
-    }
-    
+    }    
   }
 
 }

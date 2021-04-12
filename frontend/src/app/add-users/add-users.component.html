@@ -405,10 +405,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-tasks"></i> </span>
                         </div>
-                        <input list="id-services" name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="servicesType">
-                        <datalist id="id-services">
-                            <option *ngFor="let codebook of codebookServices">{{ codebook.data }}</option>
-                        </datalist>
+                        <input name="servicesType" class="form-control" placeholder="Type of services" type="text" [(ngModel)]="servicesType">
                     </div>
 
                     <div class="form-group input-group">
