@@ -105,12 +105,13 @@ router.route('/registerStartup').post((req, res) => {
     let ipStatus = req.body.ipStatus;
     let patentInfo = req.body.patentInfo;
     let logo = req.body.logo;
-    startup_1.default.collection.insertOne({ 'username': username, 'password': password, 'fullName': fullName, 'establishmentDate': establishmentDate,
+    startup_1.default.collection.insertOne({ 'username': username, 'fullName': fullName, 'establishmentDate': establishmentDate,
         'registrationNumber': registrationNumber, 'taxId': taxId, 'firstName': firstName, 'middleName': middleName, 'lastName': lastName,
         'address': address, 'municipality': municipality, 'city': city, 'country': country, 'phoneNumber': phoneNumber, 'email': email,
         'website': website, 'socialNetworks': socialNetworks, 'businessType': businessType, 'employeeNumber': employeeNumber, 'phase': phase,
         'income1': income1, 'income2': income2, 'income3': income3, 'profit1': profit1, 'profit2': profit2, 'profit3': profit3,
-        'projectProposal': projectProposal, 'amount': amount, 'ipStatus': ipStatus, 'patentInfo': patentInfo, 'logo': logo
+        'projectProposal': projectProposal, 'amount': amount, 'ipStatus': ipStatus, 'patentInfo': patentInfo, 'logo': logo,
+        'interests': [], 'professionalSkills': []
     });
     user_1.default.collection.insertOne({ 'username': username, 'password': password, 'type': "startup" });
     res.json({ message: 1 });
@@ -146,7 +147,7 @@ router.route('/registerInvestor').post((req, res) => {
     let investFrom = req.body.investFrom;
     let investTo = req.body.investTo;
     let logo = req.body.logo;
-    investor_1.default.collection.insertOne({ 'username': username, 'password': password, 'fullName': fullName, 'establishmentDate': establishmentDate,
+    investor_1.default.collection.insertOne({ 'username': username, 'fullName': fullName, 'establishmentDate': establishmentDate,
         'registrationNumber': registrationNumber, 'taxId': taxId, 'firstName': firstName, 'middleName': middleName, 'lastName': lastName,
         'address': address, 'municipality': municipality, 'city': city, 'country': country, 'phoneNumber': phoneNumber, 'email': email,
         'website': website, 'socialNetworks': socialNetworks, 'businessType': businessType, 'employeeNumber': employeeNumber,

@@ -30,6 +30,7 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
 import { CodebookComponent } from './codebook/codebook.component';
 import { AddCodebookComponent } from './add-codebook/add-codebook.component';
 import { EditCodebookComponent } from './edit-codebook/edit-codebook.component';
+import { AddInterestsComponent } from './add-interests/add-interests.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EditCodebookComponent } from './edit-codebook/edit-codebook.component';
     RecommendationsComponent,
     CodebookComponent,
     AddCodebookComponent,
-    EditCodebookComponent
+    EditCodebookComponent,
+    AddInterestsComponent
   ],
   imports: [
     BrowserModule,

@@ -122,6 +122,14 @@ const Startup = new Schema({
     logo: {
         type: String,
         required: true
+    },
+    interests: {
+        type: Array,
+        required: true
+    },
+    professionalSkills: {
+        type: Array,
+        required: true
     }
 });
 

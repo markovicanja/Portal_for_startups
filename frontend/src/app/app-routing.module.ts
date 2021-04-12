@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCodebookComponent } from './add-codebook/add-codebook.component';
+import { AddInterestsComponent } from './add-interests/add-interests.component';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { AdsCreateComponent } from './ads-create/ads-create.component';
 import { AdsComponent } from './ads/ads.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'codebooks', component: CodebookComponent },
   { path: 'addCodebook', component: AddCodebookComponent },
   { path: 'editCodebook', component: EditCodebookComponent },
+  { path: 'addInterests', component: AddInterestsComponent },
 ];
 
 @NgModule({

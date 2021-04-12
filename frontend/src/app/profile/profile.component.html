@@ -1,8 +1,14 @@
 <div class="card">
+
     <div class="card-body mx-auto">
         
         <h4 class="card-title mt-3 text-center" *ngIf="userType!='admin'">Edit data</h4>
         <h4 class="card-title mt-3 text-center" *ngIf="userType=='admin'">All users</h4>
+
+        <div class="form-group text-center mt-3 mx-5" *ngIf="userType=='startup'">
+            <button (click)="addInterests()" class="btn btn-primary mx-3"><i class="fas fa-plus"></i> Add interests</button>
+            <button (click)="addSkills()" class="btn btn-primary mx-3"><i class="fas fa-plus"></i> Add professional skills</button>
+        </div>
 
         <!-- Startup -->
         <div class="mb-3 text-center" style="max-width: 600px" *ngIf="userType=='startup'">

@@ -29,4 +29,6 @@ export class Startup {
     ipStatus: string;
     patentInfo: string;
     logo: string;
+    interests: Array<string>;
+    professionalSkills: Array<string>;
 }

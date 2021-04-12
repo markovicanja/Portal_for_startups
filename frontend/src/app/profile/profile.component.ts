@@ -117,4 +117,14 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['addUser']);
   }
 
+  addInterests() {
+    localStorage.setItem("addInterests", "interests");
+    this.router.navigate(['addInterests']);
+  }
+
+  addSkills() {
+    localStorage.setItem("addInterests", "skills");
+    this.router.navigate(['addInterests']);
+  }
+
 }
