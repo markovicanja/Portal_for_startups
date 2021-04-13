@@ -507,6 +507,27 @@ router.route('/insertDiscussion').post((req, res) => {
     res.json({message: 1});   
 });
 
+router.route('/archiveDiscussion').post((req, res) => {
+    let title = req.body.title;
+
+    discussion.collection.updateOne({'title': title}, {$set: {'archived': true}});
+    res.json({message: 1});  
+});
+
+router.route('/removeDiscussion').post((req, res) => {
+    let title = req.body.title;
+
+    discussion.collection.updateOne({'title': title}, {$set: {'deleted': true}});
+    res.json({message: 1});  
+});
+
+router.route('/deleteDiscussion').post((req, res) => {
+    let title = req.body.title;
+
+    discussion.collection.deleteOne({'title': title});
+    res.json({message: 1});  
+});
+
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");

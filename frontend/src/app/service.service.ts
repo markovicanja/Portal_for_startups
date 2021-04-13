@@ -452,4 +452,26 @@ export class ServiceService {
     }
     return this.http.post(`${this.uri}/insertDiscussion`, data);
   }
+
+  archiveDiscussion(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/archiveDiscussion`, data);
+  }
+  
+  removeDiscussion(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/removeDiscussion`, data);
+  }
+  
+  deleteDiscussion(title) {
+    const data = {
+      title: title
+    }
+    return this.http.post(`${this.uri}/deleteDiscussion`, data);
+  }
+
 }

@@ -45,15 +45,21 @@ export class DiscussionComponent implements OnInit {
   }
 
   archive(discussion: Discussion) {
-
+    this.service.archiveDiscussion(discussion.title).subscribe(() => {
+      this.getAllDiscussions();
+    });
   }
 
   remove(discussion: Discussion) {
-
+    this.service.removeDiscussion(discussion.title).subscribe(() => {
+      this.getAllDiscussions();
+    });
   }
 
   delete(discussion: Discussion) {
-
+    this.service.deleteDiscussion(discussion.title).subscribe(() => {
+      this.getAllDiscussions();
+    });
   }
 
   deleteReplay(discussion: Discussion, index: number) {
