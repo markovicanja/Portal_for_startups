@@ -38,9 +38,22 @@ export class DiscussionComponent implements OnInit {
   replay: string;
 
   getAllDiscussions() {
-    // DOHVATI NA OSNOVU VISIBILITIJA OD DISKUSIJE!!!
-    this.service.getAllDiscussions().subscribe((d: Discussion[]) => {
-      this.discussions = d;
+    this.discussions = [];
+    this.service.getAllDiscussions().subscribe((discussions: Discussion[]) => {
+      discussions.forEach(d => {
+        if (this.loggedUser == 'startup') {          
+          if (d.visibility == 'Everyone' || d.visibility == 'All startups') this.discussions.push(d);
+        }
+        else if (this.loggedUser == 'investor') {
+          if (d.visibility == 'Everyone') this.discussions.push(d);
+        }
+        else if (this.loggedUser == 'admin') {
+          this.discussions = discussions;
+        }
+        else {
+          if (d.visibility == 'Everyone') this.discussions.push(d);
+        }
+      });
     });
   }
 
@@ -63,11 +76,27 @@ export class DiscussionComponent implements OnInit {
   }
 
   deleteReplay(discussion: Discussion, index: number) {
-
+    this.service.deleteDiscussionReplay(discussion.title, discussion.replays[index].replay).subscribe(() => {
+      this.getAllDiscussions();
+    });
   }
 
   addReplay(discussion: Discussion) {
+    let date = new Date();
+    let time = "" + ("00" + date.getHours()).slice(-2) + ":" + ("00" + date.getMinutes()).slice(-2);
+    let dateString = (date.getFullYear()) + "-" + ("00" + (date.getMonth() + 1)).slice(-2) + "-" + ("00" + date.getDate()).slice(-2);
 
+    let replay = {
+      fullName: this.loggedUserFullName,
+      replay: this.replay, 
+      date: dateString,
+      time: time
+    }
+
+    this.service.addDiscussionReplay(discussion.title, replay).subscribe(() => {
+      this.getAllDiscussions();
+      this.replay = "";
+    });
   }
 
   addDiscussion() {

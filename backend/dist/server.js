@@ -480,6 +480,19 @@ router.route('/deleteDiscussion').post((req, res) => {
     discussion_1.default.collection.deleteOne({ 'title': title });
     res.json({ message: 1 });
 });
+router.route('/addDiscussionReplay').post((req, res) => {
+    let title = req.body.title;
+    let replay = req.body.replay;
+    discussion_1.default.collection.updateOne({ 'title': title }, { $push: { 'replays': replay } });
+    res.json({ message: 1 });
+});
+router.route('/deleteDiscussionReplay').post((req, res) => {
+    let title = req.body.title;
+    let replay = req.body.replay;
+    console.log(title + " " + replay);
+    discussion_1.default.collection.updateOne({ 'title': title }, { $pull: { 'replays': { 'replay': replay } } });
+    res.json({ message: 1 });
+});
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");

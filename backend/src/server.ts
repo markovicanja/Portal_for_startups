@@ -528,6 +528,24 @@ router.route('/deleteDiscussion').post((req, res) => {
     res.json({message: 1});  
 });
 
+router.route('/addDiscussionReplay').post((req, res) => {
+    let title = req.body.title;
+    let replay = req.body.replay;
+
+    discussion.collection.updateOne({'title': title}, {$push: {'replays': replay}});
+    res.json({message: 1});  
+});
+
+router.route('/deleteDiscussionReplay').post((req, res) => {
+    let title = req.body.title;
+    let replay = req.body.replay;
+
+    console.log(title + " " + replay);
+
+    discussion.collection.updateOne({'title': title}, {$pull: {'replays': {'replay': replay}}});
+    res.json({message: 1});  
+});
+
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");

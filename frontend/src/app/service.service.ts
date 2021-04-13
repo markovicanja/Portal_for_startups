@@ -474,4 +474,20 @@ export class ServiceService {
     return this.http.post(`${this.uri}/deleteDiscussion`, data);
   }
 
+  addDiscussionReplay(title, replay) {
+    const data = {
+      title: title,
+      replay: replay
+    }
+    return this.http.post(`${this.uri}/addDiscussionReplay`, data);
+  }
+
+  deleteDiscussionReplay(title, replay) {
+    const data = {
+      title: title,
+      replay: replay
+    }
+    return this.http.post(`${this.uri}/deleteDiscussionReplay`, data);
+  }
+
 }
