@@ -25,6 +25,7 @@ const notification_1 = __importDefault(require("./model/notification"));
 const ad_1 = __importDefault(require("./model/ad"));
 const recommendation_1 = __importDefault(require("./model/recommendation"));
 const codebook_1 = __importDefault(require("./model/codebook"));
+const discussion_1 = __importDefault(require("./model/discussion"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(body_parser_1.default.json());
@@ -442,6 +443,26 @@ router.route('/deleteStartupSkill').post((req, res) => {
     let username = req.body.username;
     let skill = req.body.skill;
     startup_1.default.collection.updateOne({ 'username': username }, { $pull: { 'professionalSkills': skill } });
+    res.json({ message: 1 });
+});
+router.route('/getAllDiscussions').get((req, res) => {
+    discussion_1.default.find({}, (err, discussions) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(discussions);
+    });
+});
+router.route('/insertDiscussion').post((req, res) => {
+    let title = req.body.title;
+    let text = req.body.text;
+    let category = req.body.category;
+    let publishDate = req.body.publishDate;
+    let publishTime = req.body.publishTime;
+    let author = req.body.author;
+    let visibility = req.body.visibility;
+    discussion_1.default.collection.insertOne({ 'title': title, 'text': text, 'category': category, 'publishDate': publishDate, 'publishTime': publishTime,
+        'author': author, 'visibility': visibility, 'archived': false, 'deleted': false, 'replays': [] });
     res.json({ message: 1 });
 });
 /***** NODE MAILER *****/

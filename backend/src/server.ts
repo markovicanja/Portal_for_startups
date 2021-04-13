@@ -11,6 +11,7 @@ import notification from './model/notification';
 import ad from './model/ad';
 import recommendation from './model/recommendation';
 import codebook from './model/codebook';
+import discussion from './model/discussion';
 
 const app = express();
 
@@ -483,6 +484,27 @@ router.route('/deleteStartupSkill').post((req, res) => {
 
     startup.collection.updateOne({'username': username}, {$pull: {'professionalSkills': skill}});
     res.json({message: 1});    
+});
+
+router.route('/getAllDiscussions').get((req, res) => {
+    discussion.find({}, (err, discussions) => {
+        if (err) console.log(err);
+        else res.json(discussions);
+    });
+});
+
+router.route('/insertDiscussion').post((req, res) => {
+    let title = req.body.title;    
+    let text = req.body.text;
+    let category = req.body.category;
+    let publishDate = req.body.publishDate;
+    let publishTime = req.body.publishTime;
+    let author = req.body.author;    
+    let visibility = req.body.visibility;
+
+    discussion.collection.insertOne({'title': title, 'text': text, 'category': category, 'publishDate': publishDate, 'publishTime': publishTime,
+    'author': author, 'visibility': visibility, 'archived': false, 'deleted': false, 'replays': []});
+    res.json({message: 1});   
 });
 
 /***** NODE MAILER *****/

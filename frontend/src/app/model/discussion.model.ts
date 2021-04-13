@@ -8,4 +8,10 @@ export class Discussion {
     visibility: string;
     archived: boolean;
     deleted: boolean;
+    replays: [{
+        fullName: string;
+        replay: string;
+        date: string;
+        time: string;
+    }];
 }

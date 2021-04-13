@@ -436,4 +436,20 @@ export class ServiceService {
     return this.http.post(`${this.uri}/deleteStartupSkill`, data);
   }
 
+  getAllDiscussions() {
+    return this.http.get(`${this.uri}/getAllDiscussions`);
+  }
+
+  insertDiscussion(title, text, category, publishDate, publishTime, author, visibility) {
+    const data = {
+      title: title,
+      text: text,
+      category: category,
+      publishDate: publishDate, 
+      publishTime: publishTime,
+      author: author,
+      visibility: visibility
+    }
+    return this.http.post(`${this.uri}/insertDiscussion`, data);
+  }
 }

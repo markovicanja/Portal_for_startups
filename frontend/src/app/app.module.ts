@@ -31,6 +31,8 @@ import { CodebookComponent } from './codebook/codebook.component';
 import { AddCodebookComponent } from './add-codebook/add-codebook.component';
 import { EditCodebookComponent } from './edit-codebook/edit-codebook.component';
 import { AddInterestsComponent } from './add-interests/add-interests.component';
+import { DiscussionComponent } from './discussion/discussion.component';
+import { AddDiscussionComponent } from './add-discussion/add-discussion.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { AddInterestsComponent } from './add-interests/add-interests.component';
     CodebookComponent,
     AddCodebookComponent,
     EditCodebookComponent,
-    AddInterestsComponent
+    AddInterestsComponent,
+    DiscussionComponent,
+    AddDiscussionComponent
   ],
   imports: [
     BrowserModule,

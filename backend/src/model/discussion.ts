@@ -38,6 +38,27 @@ const Discussion = new Schema({
     deleted: {
         type: Boolean,
         required: true
+    },
+    replays: {
+        type: [{
+            fullName: {
+                type: String,
+                required: true
+            },
+            replay: {
+                type: String,
+                required: true
+            },
+            date: {
+                type: String,
+                required: true
+            },
+            time: {
+                type: String,
+                required: true
+            }
+        }],
+        required: true
     }
 });
 
