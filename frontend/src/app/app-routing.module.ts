@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'codebooks', component: CodebookComponent },
   { path: 'addCodebook', component: AddCodebookComponent },
   { path: 'editCodebook', component: EditCodebookComponent },
-  { path: 'addInterests', component: AddInterestsComponent },
+  { path: 'interestsAndSkills', component: AddInterestsComponent },
 ];
 
 @NgModule({

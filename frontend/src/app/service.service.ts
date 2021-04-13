@@ -404,4 +404,36 @@ export class ServiceService {
     return this.http.post(`${this.uri}/updateCodebook`, data);
   }
 
+  addStartupInterest(username, interest) {
+    const data = {
+      username: username,
+      interest: interest
+    }
+    return this.http.post(`${this.uri}/addStartupInterest`, data);
+  }
+
+  deleteStartupInterest(username, interest) {
+    const data = {
+      username: username,
+      interest: interest
+    }
+    return this.http.post(`${this.uri}/deleteStartupInterest`, data);
+  }
+
+  addStartupSkill(username, skill) {
+    const data = {
+      username: username,
+      skill: skill
+    }
+    return this.http.post(`${this.uri}/addStartupSkill`, data);
+  }
+
+  deleteStartupSkill(username, skill) {
+    const data = {
+      username: username,
+      skill: skill
+    }
+    return this.http.post(`${this.uri}/deleteStartupSkill`, data);
+  }
+
 }

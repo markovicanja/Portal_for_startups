@@ -453,6 +453,38 @@ router.route('/updateCodebook').post((req, res) => {
     res.json({message: 1});    
 });
 
+router.route('/addStartupInterest').post((req, res) => {
+    let username = req.body.username;    
+    let interest = req.body.interest;   
+
+    startup.collection.updateOne({'username': username}, {$push: {'interests': interest}});
+    res.json({message: 1});    
+});
+
+router.route('/deleteStartupInterest').post((req, res) => {
+    let username = req.body.username;    
+    let interest = req.body.interest;   
+
+    startup.collection.updateOne({'username': username}, {$pull: {'interests': interest}});
+    res.json({message: 1});    
+});
+
+router.route('/addStartupSkill').post((req, res) => {
+    let username = req.body.username;    
+    let skill = req.body.skill;   
+
+    startup.collection.updateOne({'username': username}, {$push: {'professionalSkills': skill}});
+    res.json({message: 1});    
+});
+
+router.route('/deleteStartupSkill').post((req, res) => {
+    let username = req.body.username;    
+    let skill = req.body.skill;   
+
+    startup.collection.updateOne({'username': username}, {$pull: {'professionalSkills': skill}});
+    res.json({message: 1});    
+});
+
 /***** NODE MAILER *****/
 var nodemailer = require('nodemailer');
 const details = require("../details.json");
