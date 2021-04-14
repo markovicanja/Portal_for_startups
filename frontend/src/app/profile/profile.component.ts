@@ -49,7 +49,13 @@ export class ProfileComponent implements OnInit {
     this.service.updateStartup(this.startupUsername, this.startup.username, this.startupPassword, this.startup.fullName,
       this.startup.taxId, this.startup.address, this.startup.municipality, this.startup.phoneNumber, this.startup.email, 
       this.startup.website, this.startup.businessType, this.startup.projectProposal, this.startup.amount, this.startup.ipStatus, 
-      this.startup.patentInfo).subscribe(() => {
+      this.startup.patentInfo, this.startup.usernameVisibility, this.startup.fullNameVisibility, this.startup.establishmentDateVisibility, 
+      this.startup.registrationNumberVisibility, this.startup.taxIdVisibility, this.startup.nameVisibility,
+      this.startup.addressVisibility, this.startup.municipalityVisibility, this.startup.cityVisibility, 
+      this.startup.countryVisibility, this.startup.phoneNumberVisibility, this.startup.emailVisibility, this.startup.websiteVisibility, 
+      this.startup.socialNetworksVisibility, this.startup.businessTypeVisibility, this.startup.employeeNumberVisibility, this.startup.phaseVisibility, 
+      this.startup.incomeVisibility, this.startup.profitVisibility, this.startup.projectProposalVisibility, this.startup.amountVisibility, 
+      this.startup.ipStatusVisibility, this.startup.patentInfoVisibility).subscribe(() => {
         this.service.getStartup(this.startup.username).subscribe((stup: Startup) => {
           this.startupUsername = this.startup.username;
           this.user.password = this.startupPassword;

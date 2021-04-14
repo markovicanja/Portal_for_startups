@@ -17,94 +17,305 @@
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-user"></i>&nbsp;Username </span>
                     </div>
                     <input name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="startup.username">
+                    <div class="input-group-append" *ngIf="startup.usernameVisibility == true">
+                        <button class="input-group-text" (click)="startup.usernameVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.usernameVisibility == false">
+                        <button class="input-group-text" (click)="startup.usernameVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-lock"></i>&nbsp;Password </span>
                     </div>
                     <input name="password" class="form-control" placeholder="Password" type="password" [(ngModel)]="startupPassword">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-eye-slash"></i></span>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-file-signature"></i>&nbsp;Full name </span>
                     </div>
                     <input name="fullName" class="form-control" placeholder="Full name" type="text" [(ngModel)]="startup.fullName">
+                    <div class="input-group-append" *ngIf="startup.fullNameVisibility == true">
+                        <button class="input-group-text" (click)="startup.fullNameVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.fullNameVisibility == false">
+                        <button class="input-group-text" (click)="startup.fullNameVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-file-alt"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-calendar-alt"></i>&nbsp;Establishment </span>
+                    </div>
+                    <input readonly='readonly' name="establishmentDate" class="form-control" type="text" [(ngModel)]="startup.establishmentDate">
+                    <div class="input-group-append" *ngIf="startup.establishmentDateVisibility == true">
+                        <button class="input-group-text" (click)="startup.establishmentDateVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.establishmentDateVisibility == false">
+                        <button class="input-group-text" (click)="startup.establishmentDateVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-invoice"></i>&nbsp;Registration </span>
+                    </div>
+                    <input readonly='readonly' name="registrationNumber" class="form-control" type="text" [(ngModel)]="startup.registrationNumber">
+                    <div class="input-group-append" *ngIf="startup.registrationNumberVisibility == true">
+                        <button class="input-group-text" (click)="startup.registrationNumberVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.registrationNumberVisibility == false">
+                        <button class="input-group-text" (click)="startup.registrationNumberVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-alt"></i>&nbsp;Tax </span>
                     </div>
                     <input name="taxId" class="form-control" placeholder="Tax ID" type="text" [(ngModel)]="startup.taxId">
+                    <div class="input-group-append" *ngIf="startup.taxIdVisibility == true">
+                        <button class="input-group-text" (click)="startup.taxIdVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.taxIdVisibility == false">
+                        <button class="input-group-text" (click)="startup.taxIdVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-user"></i>&nbsp;Name </span>
+                    </div>
+                    <input readonly='readonly' name="firstname" class="form-control" type="text" [(ngModel)]="startup.firstName">
+                    <input readonly='readonly' name="middlename" class="form-control" type="text" [(ngModel)]="startup.middleName">
+                    <input readonly='readonly' name="lastname" class="form-control" type="text" [(ngModel)]="startup.lastName">
+                    <div class="input-group-append" *ngIf="startup.nameVisibility == true">
+                        <button class="input-group-text" (click)="startup.nameVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.nameVisibility == false">
+                        <button class="input-group-text" (click)="startup.nameVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i>&nbsp;Address </span>
                     </div>
                     <input name="address" class="form-control" placeholder="Address" type="text" [(ngModel)]="startup.address">
+                    <div class="input-group-append" *ngIf="startup.addressVisibility == true">
+                        <button class="input-group-text" (click)="startup.addressVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.addressVisibility == false">
+                        <button class="input-group-text" (click)="startup.addressVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                     <input name="municipality" class="form-control" placeholder="Municipality" type="text" [(ngModel)]="startup.municipality">
+                    <div class="input-group-append" *ngIf="startup.municipalityVisibility == true">
+                        <button class="input-group-text" (click)="startup.municipalityVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.municipalityVisibility == false">
+                        <button class="input-group-text" (click)="startup.municipalityVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-globe"></i>&nbsp;Location </span>
+                    </div>
+                    <input readonly='readonly' name="city" class="form-control" type="text" [(ngModel)]="startup.city">
+                    <div class="input-group-append" *ngIf="startup.cityVisibility == true">
+                        <button class="input-group-text" (click)="startup.cityVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.cityVisibility == false">
+                        <button class="input-group-text" (click)="startup.cityVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                    <input readonly='readonly' name="country" class="form-control" type="text" [(ngModel)]="startup.country">
+                    <div class="input-group-append" *ngIf="startup.countryVisibility == true">
+                        <button class="input-group-text" (click)="startup.countryVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.countryVisibility == false">
+                        <button class="input-group-text" (click)="startup.countryVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-phone"></i>&nbsp;Phone </span>
                     </div>
                     <input name="phoneNumber" class="form-control" placeholder="Phone" type="text" [(ngModel)]="startup.phoneNumber">
+                    <div class="input-group-append" *ngIf="startup.phoneNumberVisibility == true">
+                        <button class="input-group-text" (click)="startup.phoneNumberVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.phoneNumberVisibility == false">
+                        <button class="input-group-text" (click)="startup.phoneNumberVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-envelope"></i>&nbsp;Email </span>
                     </div>
                     <input name="email" class="form-control" placeholder="Email" type="text" [(ngModel)]="startup.email">
+                    <div class="input-group-append" *ngIf="startup.emailVisibility == true">
+                        <button class="input-group-text" (click)="startup.emailVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.emailVisibility == false">
+                        <button class="input-group-text" (click)="startup.emailVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-desktop"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-desktop"></i>&nbsp;Website </span>
                     </div>
                     <input name="website" class="form-control" placeholder="Website" type="text" [(ngModel)]="startup.website">
+                    <div class="input-group-append" *ngIf="startup.websiteVisibility == true">
+                        <button class="input-group-text" (click)="startup.websiteVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.websiteVisibility == false">
+                        <button class="input-group-text" (click)="startup.websiteVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div> 
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-users"></i>&nbsp;Socials </span>
+                    </div>
+                    <input readonly='readonly' name="socialNetworks" class="form-control" type="text" [(ngModel)]="startup.socialNetworks">
+                    <div class="input-group-append" *ngIf="startup.socialNetworksVisibility == true">
+                        <button class="input-group-text" (click)="startup.socialNetworksVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.socialNetworksVisibility == false">
+                        <button class="input-group-text" (click)="startup.socialNetworksVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div> 
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-briefcase"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-briefcase"></i>&nbsp;Type </span>
                     </div>
                     <input name="businessType" class="form-control" placeholder="Business type" type="text" [(ngModel)]="startup.businessType">
+                    <div class="input-group-append" *ngIf="startup.businessTypeVisibility == true">
+                        <button class="input-group-text" (click)="startup.businessTypeVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.businessTypeVisibility == false">
+                        <button class="input-group-text" (click)="startup.businessTypeVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-map"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-user-tie"></i>&nbsp;Employees </span>
+                    </div>
+                    <input readonly='readonly' name="employeeNumber" class="form-control" type="number" [(ngModel)]="startup.employeeNumber">
+                    <div class="input-group-append" *ngIf="startup.employeeNumberVisibility == true">
+                        <button class="input-group-text" (click)="startup.employeeNumberVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.employeeNumberVisibility == false">
+                        <button class="input-group-text" (click)="startup.employeeNumberVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-chart-line"></i>&nbsp;Phase </span>
+                    </div>
+                    <input readonly='readonly' name="phase" class="form-control" type="text" [(ngModel)]="startup.phase">
+                    <div class="input-group-append" *ngIf="startup.phaseVisibility == true">
+                        <button class="input-group-text" (click)="startup.phaseVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.phaseVisibility == false">
+                        <button class="input-group-text" (click)="startup.phaseVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i>&nbsp;Income </span>
+                    </div>
+                    <input readonly='readonly' name="income1" class="form-control" type="text" [(ngModel)]="startup.income1">
+                    <input readonly='readonly' name="income2" class="form-control" type="text" [(ngModel)]="startup.income2">
+                    <input readonly='readonly' name="income3" class="form-control" type="text" [(ngModel)]="startup.income3">
+                    <div class="input-group-append" *ngIf="startup.incomeVisibility == true">
+                        <button class="input-group-text" (click)="startup.incomeVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.incomeVisibility == false">
+                        <button class="input-group-text" (click)="startup.incomeVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i>&nbsp;Profit </span>
+                    </div>
+                    <input readonly='readonly' name="profit1" class="form-control" type="text" [(ngModel)]="startup.profit1">
+                    <input readonly='readonly' name="profit2" class="form-control" type="text" [(ngModel)]="startup.profit2">
+                    <input readonly='readonly' name="profit3" class="form-control" type="text" [(ngModel)]="startup.profit3">
+                    <div class="input-group-append" *ngIf="startup.profitVisibility == true">
+                        <button class="input-group-text" (click)="startup.profitVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.profitVisibility == false">
+                        <button class="input-group-text" (click)="startup.profitVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-map"></i>&nbsp;Proposal </span>
                     </div>
                     <input name="projectProposal" class="form-control" placeholder="Project proposal" type="text" [(ngModel)]="startup.projectProposal">
+                    <div class="input-group-append" *ngIf="startup.projectProposalVisibility == true">
+                        <button class="input-group-text" (click)="startup.projectProposalVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.projectProposalVisibility == false">
+                        <button class="input-group-text" (click)="startup.projectProposalVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-dollar-sign"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-dollar-sign"></i>&nbsp;Amount </span>
                     </div>
                     <input name="amount" class="form-control" placeholder="Amount" type="text" [(ngModel)]="startup.amount">
+                    <div class="input-group-append" *ngIf="startup.amountVisibility == true">
+                        <button class="input-group-text" (click)="startup.amountVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.amountVisibility == false">
+                        <button class="input-group-text" (click)="startup.amountVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="far fa-copyright"></i></span>
+                        <span class="input-group-text"><i class="far fa-copyright"></i>&nbsp;Intellectual property </span>
                     </div>
                     <input name="ipStatus" class="form-control" placeholder="Intellectual property status" type="text" [(ngModel)]="startup.ipStatus">
+                    <div class="input-group-append" *ngIf="startup.ipStatusVisibility == true">
+                        <button class="input-group-text" (click)="startup.ipStatusVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.ipStatusVisibility == false">
+                        <button class="input-group-text" (click)="startup.ipStatusVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                        <span class="input-group-text"><i class="fas fa-info-circle"></i>&nbsp;Patent </span>
                     </div>
                     <input name="patentInfo" class="form-control" placeholder="Patent information" type="text" [(ngModel)]="startup.patentInfo">
+                    <div class="input-group-append" *ngIf="startup.patentInfoVisibility == true">
+                        <button class="input-group-text" (click)="startup.patentInfoVisibility = false"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-group-append" *ngIf="startup.patentInfoVisibility == false">
+                        <button class="input-group-text" (click)="startup.patentInfoVisibility = true"><i class="fas fa-eye-slash"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group">

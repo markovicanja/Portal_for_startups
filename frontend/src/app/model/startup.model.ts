@@ -1,7 +1,7 @@
 export class Startup {
     username: string;
     fullName: string;
-    establishmentDate: Date;
+    establishmentDate: string;
     registrationNumber: string;
     taxId: string;
     firstName: string;
@@ -31,4 +31,27 @@ export class Startup {
     logo: string;
     interests: Array<string>;
     professionalSkills: Array<string>;
+    usernameVisibility: boolean;
+    fullNameVisibility: boolean;
+    establishmentDateVisibility: boolean;
+    registrationNumberVisibility: boolean;
+    taxIdVisibility: boolean;
+    nameVisibility: boolean;
+    addressVisibility: boolean;
+    municipalityVisibility: boolean;
+    cityVisibility: boolean;
+    countryVisibility: boolean;
+    phoneNumberVisibility: boolean;
+    emailVisibility: boolean;
+    websiteVisibility: boolean;
+    socialNetworksVisibility: boolean;
+    businessTypeVisibility: boolean;
+    employeeNumberVisibility: boolean;
+    phaseVisibility: boolean;
+    incomeVisibility: boolean;
+    profitVisibility: boolean;
+    projectProposalVisibility: boolean;
+    amountVisibility: boolean;
+    ipStatusVisibility: boolean;
+    patentInfoVisibility: boolean;
 }

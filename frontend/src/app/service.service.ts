@@ -131,7 +131,7 @@ export class ServiceService {
     return this.http.post(`${this.uri}/login`, data);
   } 
   
-  updateStartup(oldUsername, newUsername, password, fullName, taxId, address,
+  editStartup(oldUsername, newUsername, password, fullName, taxId, address,
     municipality, phoneNumber, email, website, businessType, 
     projectProposal, amount, ipStatus, patentInfo) {
     const data = {
@@ -150,6 +150,57 @@ export class ServiceService {
       amount: amount,
       ipStatus: ipStatus,
       patentInfo: patentInfo
+    }
+    return this.http.post(`${this.uri}/editStartup`, data);
+  }
+
+  updateStartup(oldUsername, newUsername, password, fullName, taxId, address,
+    municipality, phoneNumber, email, website, businessType, 
+    projectProposal, amount, ipStatus, patentInfo, usernameVisibility, fullNameVisibility, establishmentDateVisibility,
+    registrationNumberVisibility, taxIdVisibility, nameVisibility, addressVisibility,
+    municipalityVisibility, cityVisibility, countryVisibility, phoneNumberVisibility, emailVisibility, websiteVisibility,
+    socialNetworksVisibility, businessTypeVisibility, employeeNumberVisibility, phaseVisibility, incomeVisibility, 
+    profitVisibility, projectProposalVisibility,
+    amountVisibility, ipStatusVisibility, patentInfoVisibility) {
+    const data = {
+      oldUsername: oldUsername,
+      newUsername: newUsername,
+      password: password,
+      fullName: fullName,
+      taxId: taxId,
+      address: address,
+      municipality: municipality,
+      phoneNumber: phoneNumber,
+      email: email,
+      website: website,
+      businessType: businessType,
+      projectProposal: projectProposal,
+      amount: amount,
+      ipStatus: ipStatus,
+      patentInfo: patentInfo,
+      usernameVisibility: usernameVisibility,
+      fullNameVisibility: fullNameVisibility,
+      establishmentDateVisibility: establishmentDateVisibility,
+      registrationNumberVisibility: registrationNumberVisibility,
+      taxIdVisibility: taxIdVisibility,
+      nameVisibility: nameVisibility,
+      addressVisibility: addressVisibility,
+      municipalityVisibility: municipalityVisibility,
+      cityVisibility: cityVisibility,
+      countryVisibility: countryVisibility,
+      phoneNumberVisibility: phoneNumberVisibility,
+      emailVisibility: emailVisibility,
+      websiteVisibility: websiteVisibility,
+      socialNetworksVisibility: socialNetworksVisibility,
+      businessTypeVisibility: businessTypeVisibility,
+      employeeNumberVisibility: employeeNumberVisibility,
+      phaseVisibility: phaseVisibility,
+      incomeVisibility: incomeVisibility,
+      profitVisibility: profitVisibility,
+      projectProposalVisibility: projectProposalVisibility,
+      amountVisibility: amountVisibility,
+      ipStatusVisibility: ipStatusVisibility,
+      patentInfoVisibility: patentInfoVisibility
     }
     return this.http.post(`${this.uri}/updateStartup`, data);
   }

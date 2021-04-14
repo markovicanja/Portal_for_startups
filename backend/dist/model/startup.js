@@ -15,7 +15,7 @@ const Startup = new Schema({
         required: true
     },
     establishmentDate: {
-        type: Date,
+        type: String,
         required: true
     },
     registrationNumber: {
@@ -132,6 +132,98 @@ const Startup = new Schema({
     },
     professionalSkills: {
         type: Array,
+        required: true
+    },
+    usernameVisibility: {
+        type: Boolean,
+        required: true
+    },
+    fullNameVisibility: {
+        type: Boolean,
+        required: true
+    },
+    establishmentDateVisibility: {
+        type: Boolean,
+        required: true
+    },
+    registrationNumberVisibility: {
+        type: Boolean,
+        required: true
+    },
+    taxIdVisibility: {
+        type: Boolean,
+        required: true
+    },
+    nameVisibility: {
+        type: Boolean,
+        required: true
+    },
+    addressVisibility: {
+        type: Boolean,
+        required: true
+    },
+    municipalityVisibility: {
+        type: Boolean,
+        required: true
+    },
+    cityVisibility: {
+        type: Boolean,
+        required: true
+    },
+    countryVisibility: {
+        type: Boolean,
+        required: true
+    },
+    phoneNumberVisibility: {
+        type: Boolean,
+        required: true
+    },
+    emailVisibility: {
+        type: Boolean,
+        required: true
+    },
+    websiteVisibility: {
+        type: Boolean,
+        required: true
+    },
+    socialNetworksVisibility: {
+        type: Boolean,
+        required: true
+    },
+    businessTypeVisibility: {
+        type: Boolean,
+        required: true
+    },
+    employeeNumberVisibility: {
+        type: Boolean,
+        required: true
+    },
+    phaseVisibility: {
+        type: Boolean,
+        required: true
+    },
+    incomeVisibility: {
+        type: Boolean,
+        required: true
+    },
+    profitVisibility: {
+        type: Boolean,
+        required: true
+    },
+    projectProposalVisibility: {
+        type: Boolean,
+        required: true
+    },
+    amountVisibility: {
+        type: Boolean,
+        required: true
+    },
+    ipStatusVisibility: {
+        type: Boolean,
+        required: true
+    },
+    patentInfoVisibility: {
+        type: Boolean,
         required: true
     }
 });

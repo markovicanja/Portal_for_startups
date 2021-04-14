@@ -112,7 +112,13 @@ router.route('/registerStartup').post((req, res) => {
         'website': website, 'socialNetworks': socialNetworks, 'businessType': businessType, 'employeeNumber': employeeNumber, 'phase': phase,
         'income1': income1, 'income2': income2, 'income3': income3, 'profit1': profit1, 'profit2': profit2, 'profit3': profit3,
         'projectProposal': projectProposal, 'amount': amount, 'ipStatus': ipStatus, 'patentInfo': patentInfo, 'logo': logo,
-        'interests': [], 'professionalSkills': []
+        'interests': [], 'professionalSkills': [], 'usernameVisibility': true, 'fullNameVisibility': true, 'establishmentDateVisibility': true,
+        'registrationNumberVisibility': true, 'taxIdVisibility': true, 'nameVisibility': true,
+        'addressVisibility': true, 'municipalityVisibility': true, 'cityVisibility': true,
+        'countryVisibility': true, 'phoneNumberVisibility': true, 'emailVisibility': true, 'websiteVisibility': true,
+        'socialNetworksVisibility': true, 'businessTypeVisibility': true, 'employeeNumberVisibility': true, 'phaseVisibility': true,
+        'incomeVisibility': true, 'profitVisibility': true, 'projectProposalVisibility': true, 'amountVisibility': true,
+        'ipStatusVisibility': true, 'patentInfoVisibility': true
     });
     user_1.default.collection.insertOne({ 'username': username, 'password': password, 'type': "startup" });
     res.json({ message: 1 });
@@ -164,7 +170,7 @@ router.route('/registerAdmin').post((req, res) => {
     user_1.default.collection.insertOne({ 'username': username, 'password': password, 'type': "admin" });
     res.json({ message: 1 });
 });
-router.route('/updateStartup').post((req, res) => {
+router.route('/editStartup').post((req, res) => {
     let oldUsername = req.body.oldUsername;
     let newUsername = req.body.newUsername;
     let password = req.body.password;
@@ -184,6 +190,59 @@ router.route('/updateStartup').post((req, res) => {
             'taxId': taxId, 'address': address, 'municipality': municipality, 'phoneNumber': phoneNumber, 'email': email,
             'website': website, 'businessType': businessType, 'projectProposal': projectProposal, 'amount': amount,
             'ipStatus': ipStatus, 'patentInfo': patentInfo } });
+    user_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'password': password } });
+    res.json({ message: 1 });
+});
+router.route('/updateStartup').post((req, res) => {
+    let oldUsername = req.body.oldUsername;
+    let newUsername = req.body.newUsername;
+    let password = req.body.password;
+    let fullName = req.body.fullName;
+    let taxId = req.body.taxId;
+    let address = req.body.address;
+    let municipality = req.body.municipality;
+    let phoneNumber = req.body.phoneNumber;
+    let email = req.body.email;
+    let website = req.body.website;
+    let businessType = req.body.businessType;
+    let projectProposal = req.body.projectProposal;
+    let amount = req.body.amount;
+    let ipStatus = req.body.ipStatus;
+    let patentInfo = req.body.patentInfo;
+    let usernameVisibility = req.body.usernameVisibility;
+    let fullNameVisibility = req.body.fullNameVisibility;
+    let establishmentDateVisibility = req.body.establishmentDateVisibility;
+    let registrationNumberVisibility = req.body.registrationNumberVisibility;
+    let taxIdVisibility = req.body.taxIdVisibility;
+    let nameVisibility = req.body.nameVisibility;
+    let addressVisibility = req.body.addressVisibility;
+    let municipalityVisibility = req.body.municipalityVisibility;
+    let cityVisibility = req.body.cityVisibility;
+    let countryVisibility = req.body.countryVisibility;
+    let phoneNumberVisibility = req.body.phoneNumberVisibility;
+    let emailVisibility = req.body.emailVisibility;
+    let websiteVisibility = req.body.websiteVisibility;
+    let socialNetworksVisibility = req.body.socialNetworksVisibility;
+    let businessTypeVisibility = req.body.businessTypeVisibility;
+    let employeeNumberVisibility = req.body.employeeNumberVisibility;
+    let phaseVisibility = req.body.phaseVisibility;
+    let incomeVisibility = req.body.incomeVisibility;
+    let profitVisibility = req.body.profitVisibility;
+    let projectProposalVisibility = req.body.projectProposalVisibility;
+    let amountVisibility = req.body.amountVisibility;
+    let ipStatusVisibility = req.body.ipStatusVisibility;
+    let patentInfoVisibility = req.body.patentInfoVisibility;
+    startup_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'fullName': fullName,
+            'taxId': taxId, 'address': address, 'municipality': municipality, 'phoneNumber': phoneNumber, 'email': email,
+            'website': website, 'businessType': businessType, 'projectProposal': projectProposal, 'amount': amount,
+            'ipStatus': ipStatus, 'patentInfo': patentInfo,
+            'usernameVisibility': usernameVisibility, 'fullNameVisibility': fullNameVisibility, 'establishmentDateVisibility': establishmentDateVisibility,
+            'registrationNumberVisibility': registrationNumberVisibility, 'taxIdVisibility': taxIdVisibility,
+            'nameVisibility': nameVisibility, 'addressVisibility': addressVisibility, 'municipalityVisibility': municipalityVisibility, 'cityVisibility': cityVisibility,
+            'countryVisibility': countryVisibility, 'phoneNumberVisibility': phoneNumberVisibility, 'emailVisibility': emailVisibility, 'websiteVisibility': websiteVisibility,
+            'socialNetworksVisibility': socialNetworksVisibility, 'businessTypeVisibility': businessTypeVisibility, 'employeeNumberVisibility': employeeNumberVisibility, 'phaseVisibility': phaseVisibility,
+            'incomeVisibility': incomeVisibility, 'profitVisibility': profitVisibility, 'projectProposalVisibility': projectProposalVisibility, 'amountVisibility': amountVisibility,
+            'ipStatusVisibility': ipStatusVisibility, 'patentInfoVisibility': patentInfoVisibility } });
     user_1.default.collection.updateOne({ 'username': oldUsername }, { $set: { 'username': newUsername, 'password': password } });
     res.json({ message: 1 });
 });

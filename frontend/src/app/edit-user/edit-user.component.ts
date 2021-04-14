@@ -48,7 +48,7 @@ export class EditUserComponent implements OnInit {
   user: User;
   
   updateStartup() {
-    this.service.updateStartup(this.startupUsername, this.startup.username, this.startupPassword, this.startup.fullName,
+    this.service.editStartup(this.startupUsername, this.startup.username, this.startupPassword, this.startup.fullName,
       this.startup.taxId, this.startup.address, this.startup.municipality, this.startup.phoneNumber, this.startup.email, 
       this.startup.website, this.startup.businessType, this.startup.projectProposal, this.startup.amount, this.startup.ipStatus, 
       this.startup.patentInfo).subscribe(() => {
